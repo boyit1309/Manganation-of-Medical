@@ -19,8 +19,8 @@ export default function Nav() {
           </Link>
         </div>
         <div className="nav-content">
-          <Link to="/search" className="nav-links">
-            Tìm kiếm
+          <Link to="/peopledata" className="nav-links">
+            Dữ liệu tiêm chủng 
           </Link>
         </div>
         <div className="nav-content">
