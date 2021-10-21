@@ -37,8 +37,17 @@ export default function PeopleData() {
     if (filterInput === "") return state;
 
     if (isNaN(filterInput)) {
-      return state.filter(({ name }) => name.includes(filterInput));
+      if(state.filter(({ name }) => name.includes(filterInput)).length != 0) {
+        return state.filter(({ name }) => name.includes(filterInput));
+      } 
+      else if (state.filter(({ address }) => address.includes(filterInput)).length != 0){
+        return state.filter(({ address }) => address.includes(filterInput));
+      }
+      else if (state.filter(({ sex }) => sex.includes(filterInput)).length != 0){
+        return state.filter(({ sex }) => sex.includes(filterInput));
+      }
     }
+
     return state.filter(({ age }) => age === +filterInput);
   };
 
