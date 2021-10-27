@@ -1,16 +1,24 @@
 import React from "react";
-import { Form, Input, Button, DatePicker, Select, InputNumber, Checkbox, Modal } from "antd";
+import {
+  Form,
+  Input,
+  Button,
+  DatePicker,
+  Select,
+  InputNumber,
+  Modal,
+} from "antd";
 import "../index.css";
 import axios from "axios";
 
 export default function DKTiemChung() {
   const onFinish = (values) => {
-    Modal.success({
-        title: 'Đăng kí thành công',
-    });
-    values.firstVaxDate = values.firstVaxDate.locale("vi").format('LL');
-    values.secondVaxDate = values.secondVaxDate.locale("vi").format('LL');
+    values.firstVaxDate = values.firstVaxDate.format("L");
+    values.secondVaxDate = values.secondVaxDate.format("L");
     console.log("Success:", values);
+    Modal.success({
+      title: "Đăng kí thành công",
+    });
     axios
       .post(`https://60ffade3bca46600171cf447.mockapi.io/api/products`, {
         name: values.name,
@@ -31,9 +39,14 @@ export default function DKTiemChung() {
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
     Modal.error({
-        title: 'Đăng kí thất bại',
+      title: "Đăng kí thất bại",
     });
   };
+
+  function disabledDate(current) {
+    // Can not select days before today and today
+    return current && current.valueOf() < Date.now();
+  }
 
   return (
     <>
@@ -73,7 +86,7 @@ export default function DKTiemChung() {
           name="age"
           rules={[{ required: true, message: "Hãy điền tuổi của bạn!" }]}
         >
-          <InputNumber />
+          <InputNumber min={1} max={120} />
         </Form.Item>
 
         <Form.Item
@@ -89,7 +102,7 @@ export default function DKTiemChung() {
           name="firstVaxDate"
           rules={[{ required: true, message: "Hãy điền ngày tiêm mũi 1!" }]}
         >
-          <DatePicker />
+          <DatePicker disabledDate={disabledDate} />
         </Form.Item>
 
         <Form.Item
@@ -97,15 +110,7 @@ export default function DKTiemChung() {
           name="secondVaxDate"
           rules={[{ required: true, message: "Hãy điền ngày tiêm mũi 2!" }]}
         >
-          <DatePicker />
-        </Form.Item>
-
-        <Form.Item
-          name="remember"
-          valuePropName="checked"
-          wrapperCol={{ offset: 10, span: 16 }}
-        >
-          <Checkbox>Remember me</Checkbox>
+          <DatePicker disabledDate={disabledDate} />
         </Form.Item>
 
         <Form.Item wrapperCol={{ offset: 10, span: 16 }}>

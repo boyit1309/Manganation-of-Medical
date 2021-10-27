@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Table, Input, Space } from "antd";
+import { Table, Input } from "antd";
 import "antd/dist/antd.css";
-import moment from "moment";
-
 const { Search } = Input;
 
 export default function PeopleData() {
@@ -99,11 +97,6 @@ export default function PeopleData() {
       title: "Ngày tiêm mũi 1",
       dataIndex: "firstVaxDate",
       key: "firstVaxDate",
-      render: firstVaxDate => {
-        console.log(firstVaxDate);
-        console.log(moment().format());
-        return (firstVaxDate);
-      }
     },
     {
       title: "Ngày tiêm mũi 2",
