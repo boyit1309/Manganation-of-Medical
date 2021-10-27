@@ -24,8 +24,8 @@ export default function Nav() {
           </Link>
         </div>
         <div className="nav-content">
-          <Link to="/chart2" className="nav-links">
-            Chart2
+          <Link to="/dktiemchung" className="nav-links">
+            Đăng kí tiêm chủng
           </Link>
         </div>
         <div className="nav-content">

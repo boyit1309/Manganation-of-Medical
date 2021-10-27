@@ -25,3 +25,15 @@ nav{
     display: block;
     text-decoration-line: none;
 }
+
+.search-box {
+    padding: 10px 10px 10px 10px ;
+    float: right;
+    width : 300px;
+}
+
+.title{
+    padding-top: 10px;
+    text-align: center;
+    color: blue;
+}
