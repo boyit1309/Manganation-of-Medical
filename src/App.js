@@ -1,6 +1,6 @@
 import "./App.css";
 import Home from "./components/home/Home";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import DangNhap from "./components/home/DangNhap";
 
 function App() {
   return (

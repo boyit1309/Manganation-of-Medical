@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Form,
   Input,
@@ -12,13 +12,17 @@ import "../index.css";
 import axios from "axios";
 
 export default function DKTiemChung() {
+
+  const [visible, setVisible] = useState(false);
+
   const onFinish = (values) => {
     values.firstVaxDate = values.firstVaxDate.format("L");
     values.secondVaxDate = values.secondVaxDate.format("L");
     console.log("Success:", values);
-    Modal.success({
-      title: "Đăng kí thành công",
-    });
+    setVisible(true);
+    // Modal.success({
+    //   title: "Đăng kí thành công",
+    // });
     axios
       .post(`https://60ffade3bca46600171cf447.mockapi.io/api/products`, {
         name: values.name,
@@ -48,10 +52,18 @@ export default function DKTiemChung() {
     return current && current.valueOf() < Date.now();
   }
 
+  const validateMessages = {
+    required: "Hãy điền ${label} của bạn",
+    types: {
+      email: "Đây không phải một email hợp lệ",
+    },
+  };
+
   return (
     <>
       <h1 className="title">Đăng kí tiêm chủng</h1>
       <Form
+        validateMessages={validateMessages}
         style={{ paddingTop: "20px" }}
         name="basic"
         labelCol={{ span: 10 }}
@@ -64,43 +76,81 @@ export default function DKTiemChung() {
         <Form.Item
           label="Tên"
           name="name"
-          rules={[{ required: true, message: "Hãy điền tên của bạn!" }]}
+          rules={[
+            {
+              required: true,
+            },
+          ]}
         >
           <Input />
         </Form.Item>
 
-        <Form.Item
-          label="Giới tính"
-          name="sex"
-          rules={[{ required: true, message: "Hãy điền giới tính của bạn" }]}
-        >
-          <Select>
+        <Form.Item label="Giới tính" name="sex" rules={[{ required: true }]}>
+          <Select style={{ width: '30%' }}>
             <Select.Option value="Nam">Nam</Select.Option>
             <Select.Option value="Nữ">Nữ</Select.Option>
             <Select.Option value="Khác">Khác</Select.Option>
           </Select>
         </Form.Item>
 
-        <Form.Item
-          label="Tuổi"
-          name="age"
-          rules={[{ required: true, message: "Hãy điền tuổi của bạn!" }]}
-        >
+        <Form.Item label="Tuổi" name="age" rules={[{ required: true }]}>
           <InputNumber min={1} max={120} />
         </Form.Item>
 
         <Form.Item
-          label="Địa chỉ"
-          name="address"
-          rules={[{ required: true, message: "Hãy điền địa chỉ của bạn!" }]}
+          label="Số điện thoại"
+          name="phone"
+          width="200px"
+          rules={[{ required: true }]}
         >
-          <Input />
+          <InputNumber style={{ width: '100%' }} />
         </Form.Item>
 
         <Form.Item
+          label="CMND"
+          name="cmnd"
+          width="200px"
+          rules={[{ required: true }]}
+        >
+          <InputNumber style={{ width: '100%' }} />
+        </Form.Item>
+
+        <Form.Item
+          label="BHYT"
+          name="bhyt"
+          width="200px"
+          rules={[{ required: true }]}
+        >
+          <InputNumber style={{ width: '100%' }} />
+        </Form.Item>
+
+        <Form.Item label="Email" name="email" rules={[{ required: true ,type : "email"}]}>
+          <Input />
+        </Form.Item>
+
+        <Form.Item label="Địa chỉ" name="address" rules={[{ required: true }]}>
+          <Input />
+        </Form.Item>
+
+        <Form.Item label="Nghề nghiệp" name="job" rules={[{ required: true }]}>
+          <Input />
+        </Form.Item>
+
+        <Form.Item label="Địa chỉ công tác" name="jobAddress" rules={[{ required: true }]}>
+          <Input />
+        </Form.Item>
+
+        <Form.Item label="Dân tộc" name="folk" rules={[{ required: true }]}>
+          <Select style={{ width: '30%' }}>
+            <Select.Option value="Kinh">Kinh</Select.Option>
+            <Select.Option value="Khác">Khác</Select.Option>
+          </Select>
+        </Form.Item>
+        
+        <Form.Item
           label="Ngày tiêm mũi 1"
           name="firstVaxDate"
-          rules={[{ required: true, message: "Hãy điền ngày tiêm mũi 1!" }]}
+          rules={[{ required: true }]}
         >
           <DatePicker disabledDate={disabledDate} />
         </Form.Item>
@@ -108,7 +158,7 @@ export default function DKTiemChung() {
         <Form.Item
           label="Ngày tiêm mũi 2"
           name="secondVaxDate"
-          rules={[{ required: true, message: "Hãy điền ngày tiêm mũi 2!" }]}
+          rules={[{ required: true }]}
         >
           <DatePicker disabledDate={disabledDate} />
         </Form.Item>
@@ -119,6 +169,28 @@ export default function DKTiemChung() {
           </Button>
         </Form.Item>
       </Form>
+
+      <Modal
+        title="Thông báo"
+        style={{ top: 100 }}
+        visible={visible}
+        onOk={() => setVisible(false)}
+        onCancel={() => setVisible(false)}
+        width={400}
+        footer={[
+          <Button
+            key="ok"
+            href="http://localhost:3000/"
+            type="primary"
+            onClick={() => setVisible(false)}
+          >
+            OK
+          </Button>,
+        ]}
+      >
+        <p>Đăng kí thành công</p>
+      </Modal>
+
     </>
   );
 }
