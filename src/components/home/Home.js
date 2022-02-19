@@ -7,6 +7,7 @@ import Homepage from "./homepage/Homepage";
 import DKTiemChung from "./dktiemchung/DKTiemChung";
 import Chart1 from "./chart/Chart1";
 import DangNhap from "./DangNhap";
+import Test from "./chart/Test";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         <Route path="/nav/home" exact component={Homepage} />
         <Route path="/nav/dktiemchung" exact component={DKTiemChung} />
         <Route path="/nav/chart1" exact component={Chart1} />
+        <Route path="/nav/test" exact component={Test} />
         <Route path="/nav/chart2" exact component={Chart2} />
         <Route path="/nav/peopledata" exact component={PeopleData} />
       </Router>

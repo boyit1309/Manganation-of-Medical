@@ -35,13 +35,15 @@ export default function PeopleData() {
     if (filterInput === "") return state;
 
     if (isNaN(filterInput)) {
-      if(state.filter(({ name }) => name.includes(filterInput)).length != 0) {
+      if (state.filter(({ name }) => name.includes(filterInput)).length != 0) {
         return state.filter(({ name }) => name.includes(filterInput));
-      } 
-      else if (state.filter(({ address }) => address.includes(filterInput)).length != 0){
+      } else if (
+        state.filter(({ address }) => address.includes(filterInput)).length != 0
+      ) {
         return state.filter(({ address }) => address.includes(filterInput));
-      }
-      else if (state.filter(({ sex }) => sex.includes(filterInput)).length != 0){
+      } else if (
+        state.filter(({ sex }) => sex.includes(filterInput)).length != 0
+      ) {
         return state.filter(({ sex }) => sex.includes(filterInput));
       }
     }
