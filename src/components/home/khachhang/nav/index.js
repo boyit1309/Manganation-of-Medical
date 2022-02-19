@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Homepage from "./homepage/Homepage";
-import "./index.css";
-export default function Nav() {
+import { WrapperStyled } from "./styled";
+
+export default function NavForCustomer() {
   return (
-    <>
+    <WrapperStyled>
       <nav>
         <Link to="/nav/admin/home" exact className="nav-logo">
           <h1>Quản lý tiêm chủng</h1>
@@ -52,6 +52,6 @@ export default function Nav() {
           </div>
         </div>
       </nav>
-    </>
+    </WrapperStyled>
   );
 }

@@ -7,7 +7,7 @@ export default function DangNhap() {
 
   useEffect(() => {
     axios
-      .get(`https://60ffade3bca46600171cf447.mockapi.io/api/taikhoan`)
+      .get(`https://61fe8846a58a4e00173c98aa.mockapi.io/taiKhoan`)
       .then((res) => {
         _setState(res.data);
       })
@@ -15,14 +15,27 @@ export default function DangNhap() {
   }, []);
 
   const onFinish = (values) => {
-    console.log("Success:", values);
-    if (
-      state[0].username == values.username &&
-      state[0].password == values.password &&
-      state[0].admin == true
-    ) {
-      window.location.href = "http://localhost:3000/nav/home";
-    } else {
+    // console.log("Success:", values);
+    let check = 0;
+    for (let i = 0; i < Object.keys(state).length; i++) {
+      if (
+        state[i].tenDangNhap == values.tenDangNhap &&
+        state[i].matKhau == values.matKhau
+      ) {
+        check = 1;
+        // console.log("hello",state[i].vaiTro);
+        if (state[i].vaiTro == "admin") {
+          window.location.href = "http://localhost:3000/nav/admin/home";
+        }
+        else if (state[i].vaiTro == "staff") {
+          window.location.href = "http://localhost:3000/nav/staff";
+        }
+        else if (state[i].vaiTro == "customer") {
+          window.location.href = "http://localhost:3000/nav/customer";
+        }
+      }
+    }
+    if (check === 0) {
       Modal.error({
         title: "Sai tài khoản hoặc mật khẩu",
       });
@@ -37,7 +50,7 @@ export default function DangNhap() {
   };
   return (
     <>
-        <h1 className="title">Hệ thống quản lý tiêm chủng</h1>
+      <h1 className="title">Hệ thống quản lý tiêm chủng</h1>
       <div className="login">
         <div className="login-title">Đăng nhập</div>
         <Form
@@ -51,8 +64,8 @@ export default function DangNhap() {
         >
           <Form.Item
             label="Tài khoản"
-            name="username"
-            style={{width : "300px"}}
+            name="tenDangNhap"
+            style={{ width: "300px" }}
             rules={[{ required: true, message: "Hãy nhập tài khoản" }]}
           >
             <Input />
@@ -60,8 +73,8 @@ export default function DangNhap() {
 
           <Form.Item
             label="Mật khẩu"
-            name="password"
-            style={{width : "300px"}}
+            name="matKhau"
+            style={{ width: "300px" }}
             rules={[{ required: true, message: "Hãy nhập mật khẩu" }]}
           >
             <Input.Password />
@@ -69,8 +82,11 @@ export default function DangNhap() {
 
           <Form.Item wrapperCol={{ offset: 10, span: 5 }}>
             <Button type="primary" htmlType="submit">
-              Submit
+              Đăng nhập
             </Button>
+            {/* <Button type="primary">
+              Đăng ký
+            </Button> */}
           </Form.Item>
         </Form>
       </div>
