@@ -41,8 +41,8 @@ export default function Nav() {
             </Link>
           </div>
           <div className="nav-content">
-            <Link to="/nav/chart2" className="nav-links">
-              Chart2
+            <Link to="/nav/bangsp" className="nav-links">
+              Bảng sản phẩm
             </Link>
           </div>
           <div className="nav-content">
