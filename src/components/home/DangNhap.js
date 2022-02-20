@@ -28,10 +28,10 @@ export default function DangNhap() {
           window.location.href = "http://localhost:3000/nav/admin/home";
         }
         else if (state[i].vaiTro == "staff") {
-          window.location.href = "http://localhost:3000/nav/staff";
+          window.location.href = `http://localhost:3000/nav/staff?id=${state[i].maTaiKhoan}`;
         }
         else if (state[i].vaiTro == "customer") {
-          window.location.href = "http://localhost:3000/nav/customer";
+          window.location.href = `http://localhost:3000/nav/customer?id=${state[i].maTaiKhoan}`;
         }
       }
     }

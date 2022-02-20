@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import { WrapperStyled } from "./styled";
 
 export default function NavForStaff() {
+
+  const Path = window.location.pathname;
+  console.log("path : " , Path)
   return (
     <WrapperStyled>
       <nav>
@@ -12,12 +15,12 @@ export default function NavForStaff() {
         <div className="nav-contain">
           <div className="nav-content">
             <Link to="/nav/admin/chart1" className="nav-links">
-              Chart1
+              Thông tin sản phẩm
             </Link>
           </div>
           <div className="nav-content">
             <Link to="/nav/admin/chart2" className="nav-links">
-              Chart2
+              Thông tin khách hàng
             </Link>
           </div>
           <div className="nav-content">
@@ -27,20 +30,20 @@ export default function NavForStaff() {
           </div>
           <div className="nav-content">
             <Link to="/nav/admin/dktiemchung" className="nav-links">
-              Đăng kí tiêm chủng
+              Thông kê
             </Link>
           </div>
           <div className="nav-content">
             <Link to="/nav/admin/test" className="nav-links">
-              Phong bê đê
+              Thông tin nhân viên
             </Link>
           </div>
           <div className="nav-content">
             <Link to="/nav/admin/chart2" className="nav-links">
-              Chart2
+              Log out
             </Link>
           </div>
-          <div className="nav-content">
+          {/* <div className="nav-content">
             <Link to="/nav/admin/bangsp" className="nav-links">
               Bảng sản phẩm
             </Link>
@@ -49,9 +52,11 @@ export default function NavForStaff() {
             <Link to="/nav/admin/chart2" className="nav-links">
               Chart2
             </Link>
-          </div>
+          </div> */}
         </div>
       </nav>
+
+      <h1 style={{color : "black"}}>{Path}</h1>
     </WrapperStyled>
   );
 }

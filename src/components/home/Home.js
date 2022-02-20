@@ -11,12 +11,20 @@ import Test from "./chart/Test";
 import BangSp from "./chart/bangsp";
 import NavForStaff from "./nhanvien/nav";
 import NavForCustomer from "./khachhang/nav";
+import Welcome from "./Welcome";
+import Registration from "./Registration";
+import SanPhamChoKhachHang from "./khachhang/thongtinsanpham";
+import ThongTinKhachHang from "./khachhang/thongtinkhachhang";
+import DangKiTiemChung from "./khachhang/dangkitiemchung";
 
 export default function Home() {
   return (
     <>
       <Router>
-        <Route path="/" exact component={DangNhap} />
+
+        <Route path="/" exact component={Welcome} />
+        <Route path="/login" exact component={DangNhap} />
+        <Route path="/registration" exact component={Registration} />
 
         {/* cho admin */}
         <Route path="/nav/admin" component={Nav} />
@@ -33,6 +41,14 @@ export default function Home() {
 
         {/* cho khách hàng */}
         <Route path="/nav/customer" component={NavForCustomer} />
+        <Route
+          path="/nav/customer/data-product-customer"
+          exact
+          component={SanPhamChoKhachHang}
+        />
+        <Route path="/nav/customer/data-customer" component={ThongTinKhachHang} />
+        <Route path="/nav/customer/dang-ki-tiem-chung" component={DangKiTiemChung} />
+
       </Router>
     </>
   );

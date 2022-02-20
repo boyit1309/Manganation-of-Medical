@@ -12,30 +12,30 @@ export default function Nav() {
         <div className="nav-contain">
           <div className="nav-content">
             <Link to="/nav/admin/chart1" className="nav-links">
-              Chart1
+              Thông tin sản phẩm
             </Link>
           </div>
           <div className="nav-content">
             <Link to="/nav/admin/chart2" className="nav-links">
-              Chart2
+              Thông tin khách hàng
             </Link>
           </div>
           <div className="nav-content">
             <Link to="/nav/admin/peopledata" className="nav-links">
-              Dữ liệu tiêm chủng
+              Thông tin nhân viên
             </Link>
           </div>
           <div className="nav-content">
             <Link to="/nav/admin/dktiemchung" className="nav-links">
-              Đăng kí tiêm chủng
+              Dữ liệu tiêm chủng
             </Link>
           </div>
           <div className="nav-content">
             <Link to="/nav/admin/test" className="nav-links">
-              Phong bê đê
+              Thông kê
             </Link>
           </div>
-          <div className="nav-content">
+          {/* <div className="nav-content">
             <Link to="/nav/admin/chart2" className="nav-links">
               Chart2
             </Link>
@@ -44,10 +44,10 @@ export default function Nav() {
             <Link to="/nav/admin/bangsp" className="nav-links">
               Bảng sản phẩm
             </Link>
-          </div>
+          </div> */}
           <div className="nav-content">
             <Link to="/nav/admin/chart2" className="nav-links">
-              Chart2
+              Log out
             </Link>
           </div>
         </div>

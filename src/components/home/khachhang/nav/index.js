@@ -3,6 +3,17 @@ import { Link } from "react-router-dom";
 import { WrapperStyled } from "./styled";
 
 export default function NavForCustomer() {
+  const Path = window.location.href;
+  const ArrayPath = Path.split("=");
+  const onClick1 = () => {
+    window.location.href = `http://localhost:3000/nav/customer/data-product-customer?id=${ArrayPath[1]}`;
+  };
+  const onClick2 = () => {
+    window.location.href = `http://localhost:3000/nav/customer/data-customer?id=${ArrayPath[1]}`;
+  };
+  const onClick3 = () => {
+    window.location.href = `http://localhost:3000/nav/customer/dang-ki-tiem-chung?id=${ArrayPath[1]}`;
+  };
   return (
     <WrapperStyled>
       <nav>
@@ -11,43 +22,23 @@ export default function NavForCustomer() {
         </Link>
         <div className="nav-contain">
           <div className="nav-content">
-            <Link to="/nav/admin/chart1" className="nav-links">
-              Chart1
-            </Link>
+            <a onClick={onClick1} className="nav-links">
+              Thông tin sản phẩm
+            </a>
           </div>
           <div className="nav-content">
-            <Link to="/nav/admin/chart2" className="nav-links">
-              Chart2
-            </Link>
+            <a onClick={onClick2} className="nav-links">
+              Thông tin khách hàng
+            </a>
           </div>
           <div className="nav-content">
-            <Link to="/nav/admin/peopledata" className="nav-links">
-              Dữ liệu tiêm chủng
-            </Link>
-          </div>
-          <div className="nav-content">
-            <Link to="/nav/admin/dktiemchung" className="nav-links">
+            <a onClick={onClick3} className="nav-links">
               Đăng kí tiêm chủng
-            </Link>
+            </a>
           </div>
           <div className="nav-content">
-            <Link to="/nav/admin/test" className="nav-links">
-              Phong bê đê
-            </Link>
-          </div>
-          <div className="nav-content">
-            <Link to="/nav/admin/chart2" className="nav-links">
-              Chart2
-            </Link>
-          </div>
-          <div className="nav-content">
-            <Link to="/nav/admin/bangsp" className="nav-links">
-              Bảng sản phẩm
-            </Link>
-          </div>
-          <div className="nav-content">
-            <Link to="/nav/admin/chart2" className="nav-links">
-              Chart2
+            <Link to="/" className="nav-links">
+              log out
             </Link>
           </div>
         </div>
