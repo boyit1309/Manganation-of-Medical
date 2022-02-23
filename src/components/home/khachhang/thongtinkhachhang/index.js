@@ -33,16 +33,16 @@ export default function ThongTinKhachHang() {
       .then((res) => {
         // console.log("res", res.data);
         setNguoiDung(res.data);
-
       })
       .catch((error) => console.log(error));
   }, []);
 
   useEffect(() => {
-    let newData = nguoiDung?.length?nguoiDung.find(item=>item.maKhachHang==ArrayPath[1]) : {};
-    form.setFieldsValue({...newData,ngaySinh:moment(newData.ngaySinh)});
-}, [nguoiDung]);
-
+    let newData = nguoiDung?.length
+      ? nguoiDung.find((item) => item.maTaiKhoan == ArrayPath[1])
+      : {};
+    form.setFieldsValue({ ...newData, ngaySinh: moment(newData.ngaySinh) });
+  }, [nguoiDung]);
 
   const { TextArea } = Input;
 
@@ -72,34 +72,39 @@ export default function ThongTinKhachHang() {
   const hoTen = nguoiDung?.[userID]?.hoTen;
   // console.log("id", ID);
 
-  const onSubmit = ((values) => {
+  const onSubmit = (values) => {
     // do your staff with values
     console.log("hello1111", values);
     // console.log("id2", ID);
     axios
-      .put(`https://61fe8846a58a4e00173c98aa.mockapi.io/khachHang/${nguoiDung?.[userID]?.maKhachHang}`, {
-        hoTen: values.hoTen,
-        ngaySinh: values.ngaySinh,
-        gioiTinh: values.gioiTinh,
-        diaChi: values.diaChi,
-        tuoi: values.tuoi,
-        sdt: values.sdt,
-        mail: values.mail,
-        cmnd: values.cmnd,
-        bhyt: values.bhyt,
-        danToc: values.danToc,
-        ngheNghiep: values.ngheNghiep,
-        donViCongTac: values.donViCongTac,
-        // maKhachHang: Object.keys(khachHang).length + 1,
-        // maTaiKhoan: Object.keys(taiKhoan).length + 1,
-      })
+      .put(
+        `https://61fe8846a58a4e00173c98aa.mockapi.io/khachHang/${nguoiDung?.[userID]?.maKhachHang}`,
+        {
+          hoTen: values.hoTen,
+          ngaySinh: values.ngaySinh,
+          gioiTinh: values.gioiTinh,
+          diaChi: values.diaChi,
+          tuoi: values.tuoi,
+          sdt: values.sdt,
+          mail: values.mail,
+          cmnd: values.cmnd,
+          bhyt: values.bhyt,
+          danToc: values.danToc,
+          ngheNghiep: values.ngheNghiep,
+          donViCongTac: values.donViCongTac,
+          // maKhachHang: Object.keys(khachHang).length + 1,
+          // maTaiKhoan: Object.keys(taiKhoan).length + 1,
+        }
+      )
       .then(function (response) {
         console.log(response);
       })
       .catch(function (error) {
         console.log(error);
       });
-  });
+
+    setIsOpen(false);
+  };
 
   const closePopup = useCallback(() => {
     form.resetFields();
@@ -145,15 +150,13 @@ export default function ThongTinKhachHang() {
           <Form.Item
             label="Họ và tên"
             name="hoTen"
-            // rules={[
-            //   {
-            //     required: true,
-            //   },
-            // ]}
+            rules={[
+              {
+                required: true,
+              },
+            ]}
           >
-            <Input
-             
-            />
+            <Input/>
           </Form.Item>
 
           <Form.Item
@@ -161,7 +164,7 @@ export default function ThongTinKhachHang() {
             name="ngaySinh"
             rules={[{ required: true }]}
           >
-            <DatePicker  />
+            <DatePicker />
           </Form.Item>
 
           <Form.Item
@@ -175,15 +178,14 @@ export default function ThongTinKhachHang() {
             </Select>
           </Form.Item>
 
-          <Form.Item label="Tuổi" name="tuoi">
+          <Form.Item label="Tuổi" name="tuoi" rules={[{ required: true }]}>
             <InputNumber
               min={1}
               max={120}
-              // defaultValue={nguoiDung?.[userID]?.tuoi}
             />
           </Form.Item>
 
-          <Form.Item label="Địa chỉ" name="diaChi">
+          <Form.Item label="Địa chỉ" name="diaChi" rules={[{ required: true }]}>
             <TextArea rows={4} />
           </Form.Item>
 
@@ -191,18 +193,15 @@ export default function ThongTinKhachHang() {
             label="Số điện thoại"
             name="sdt"
             width="200px"
-            // rules={[{ required: true }]}
+            rules={[{ required: true }]}
           >
-            <Input
-              style={{ width: "100%" }}
-           
-            />
+            <Input style={{ width: "100%" }} />
           </Form.Item>
 
           <Form.Item
             label="Email"
             name="mail"
-            // rules={[{ required: true, type: "email" }]}
+            rules={[{ required: true, type: "email" }]}
           >
             <Input />
           </Form.Item>
@@ -211,34 +210,28 @@ export default function ThongTinKhachHang() {
             label="số CMND"
             name="cmnd"
             width="200px"
-            // rules={[{ required: true }]}
+            rules={[{ required: true }]}
           >
-            <Input
-              style={{ width: "100%" }}
-          
-            />
+            <Input style={{ width: "100%" }} />
           </Form.Item>
 
           <Form.Item
             label="số BHYT"
             name="bhyt"
             width="200px"
-            // rules={[{ required: true }]}
+            rules={[{ required: true }]}
           >
-            <Input
-              style={{ width: "100%" }}
-           
-            />
+            <Input style={{ width: "100%" }} />
           </Form.Item>
 
-          <Form.Item label="Dân tộc" name="danToc">
-            <Input  />
+          <Form.Item label="Dân tộc" name="danToc" rules={[{ required: true }]}>
+            <Input />
           </Form.Item>
 
           <Form.Item
             label="Nghề nghiệp"
             name="ngheNghiep"
-            // rules={[{ required: true }]}
+            rules={[{ required: true }]}
           >
             <Input />
           </Form.Item>
@@ -246,9 +239,9 @@ export default function ThongTinKhachHang() {
           <Form.Item
             label="Đơn vị công tác"
             name="donViCongTac"
-            // rules={[{ required: true }]}
+            rules={[{ required: true }]}
           >
-            <Input  />
+            <Input />
           </Form.Item>
         </Form>
       </Modal>
