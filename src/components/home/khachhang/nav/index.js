@@ -38,7 +38,7 @@ export default function NavForCustomer() {
           </div>
           <div className="nav-content">
             <Link to="/" className="nav-links">
-              log out
+              Log out
             </Link>
           </div>
         </div>

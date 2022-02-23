@@ -3,9 +3,24 @@ import { Link } from "react-router-dom";
 import { WrapperStyled } from "./styled";
 
 export default function NavForStaff() {
+  const Path = window.location.href;
+  const ArrayPath = Path.split("=");
+  const onClick1 = () => {
+    window.location.href = `http://localhost:3000/nav/staff/data-product-staff?id=${ArrayPath[1]}`;
+  };
+  const onClick2 = () => {
+    window.location.href = `http://localhost:3000/nav/staff/data-customer?id=${ArrayPath[1]}`;
+  };
+  const onClick3 = () => {
+    window.location.href = `http://localhost:3000/nav/customer/dang-ki-tiem-chung?id=${ArrayPath[1]}`;
+  };
+  const onClick4 = () => {
+    window.location.href = `http://localhost:3000/nav/customer/dang-ki-tiem-chung?id=${ArrayPath[1]}`;
+  };
+  const onClick5 = () => {
+    window.location.href = `http://localhost:3000/nav/customer/dang-ki-tiem-chung?id=${ArrayPath[1]}`;
+  };
 
-  const Path = window.location.pathname;
-  console.log("path : " , Path)
   return (
     <WrapperStyled>
       <nav>
@@ -14,32 +29,32 @@ export default function NavForStaff() {
         </Link>
         <div className="nav-contain">
           <div className="nav-content">
-            <Link to="/nav/admin/chart1" className="nav-links">
+            <a onClick={onClick1} className="nav-links">
               Thông tin sản phẩm
-            </Link>
+            </a>
           </div>
           <div className="nav-content">
-            <Link to="/nav/admin/chart2" className="nav-links">
+            <a onClick={onClick2} className="nav-links">
               Thông tin khách hàng
-            </Link>
+            </a>
           </div>
           <div className="nav-content">
-            <Link to="/nav/admin/peopledata" className="nav-links">
+            <a onClick={onClick3} className="nav-links">
               Dữ liệu tiêm chủng
-            </Link>
+            </a>
           </div>
           <div className="nav-content">
-            <Link to="/nav/admin/dktiemchung" className="nav-links">
+            <a onClick={onClick4} className="nav-links">
               Thông kê
-            </Link>
+            </a>
           </div>
           <div className="nav-content">
-            <Link to="/nav/admin/test" className="nav-links">
+            <a onClick={onClick5} className="nav-links">
               Thông tin nhân viên
-            </Link>
+            </a>
           </div>
           <div className="nav-content">
-            <Link to="/nav/admin/chart2" className="nav-links">
+            <Link to="/" className="nav-links">
               Log out
             </Link>
           </div>
@@ -55,8 +70,6 @@ export default function NavForStaff() {
           </div> */}
         </div>
       </nav>
-
-      <h1 style={{color : "black"}}>{Path}</h1>
     </WrapperStyled>
   );
 }
