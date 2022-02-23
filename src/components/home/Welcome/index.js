@@ -9,10 +9,18 @@ export default function Welcome() {
     window.location.href = "http://localhost:3000/registration";
  }
   return (
-    <WrapperStyled>
-      <h1>Chào mừng đến với hệ thông quản lý tiêm chủng</h1>
-      <button onClick={Login}>đăng nhập</button>
-      <button onClick={Registration}>đăng ký</button>
+    <WrapperStyled >
+    <div className="container">
+    <div className="container__box">
+    <span className="welcome__img">
+      <img src="/image/logo.jpg" alt=""  />
+    </span>
+      <div className="btn">
+      <button className="login__btn" onClick={Login}>Đăng Nhập</button>
+      <button className="Registration" onClick={Registration}>Đăng Ký</button>
+      </div>
+    </div>
+    </div>
     </WrapperStyled>
   );
 }

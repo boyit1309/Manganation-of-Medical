@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { WrapperStyled } from "./styled";
 // import Card from "./container";
 import axios from "axios";
-import Thuoc from "../../../asset/pic/thuoc.jpg";
+import Slider from "./Slider/slider";
 
 export default function SanPhamChoKhachHang() {
   const [state, _setState] = useState([]);
@@ -21,18 +21,41 @@ export default function SanPhamChoKhachHang() {
     list[i] = i;
   }
   console.log("hello", list);
-
+  const listImg = [
+    {
+      img: '/image/sp1.jpg',
+    },
+    {
+      img: '/image/sp2.jpg',
+    },
+    {
+      img: '/image/sp3.jpg',
+    },
+    {
+      img: '/image/sp4.jpg',
+    },
+    {
+      img: '/image/sp5.jpg',
+    },
+    {
+      img: '/image/sp6.png',
+    },
+    {
+      img: '/image/sp7.jpg',
+    }
+  ]
   const Card = list.map((num) => {
     console.log("hello123", state[num].tenSanPham);
     return (
       <div className="card">
         <div className="content">
           <div className="content-left">
-            <img src={Thuoc} alt="" />
+            <img src={listImg[num].img} alt="" />
+            <button className="buy__product">Mua Ngay</button>
           </div>
           <div className="content-right">
             <div className="title">{state[num].tenSanPham}</div>
-            <ul>
+            <ul className="list__products">
               <li>Nguồn gốc : {state[num].nguonGoc}</li>
               <li>Tác dụng : {state[num].tacDung}</li>
               <li>Chống chỉ định : {state[num].chongChiDinh}</li>
@@ -47,7 +70,8 @@ export default function SanPhamChoKhachHang() {
 
   return (
     <WrapperStyled>
-      <h1>Các loại sản phẩm</h1>
+    <Slider/>
+      <h1 className="title__Sp">Danh mục vaccine</h1>
       <div className="body">{Card}</div>
     </WrapperStyled>
   );
