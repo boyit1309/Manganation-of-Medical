@@ -23,6 +23,13 @@ export default function Chart1() {
     // Create axes
     let dateAxis = chart.xAxes.push(new am4charts.DateAxis());
     dateAxis.renderer.minGridDistance = 60;
+    dateAxis.maxZoomCount = 20;
+    dateAxis.startLocation  = 0;
+    // dateAxis.maxZoomed = 10;
+    // dateAxis.max = 10;
+    // dateAxis.renderer.grid.template.location = 0;
+    // dateAxis.renderer.cellStartLocation = 0.2;
+
 
     let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
 
@@ -40,6 +47,12 @@ export default function Chart1() {
 
     //chart.scrollbarY = new am4core.Scrollbar();
     chart.scrollbarX = new am4core.Scrollbar();
+    chart.scrollbarX.parent = chart.bottomAxesContainer;
+    chart.scrollbarX.startLocation = 0;
+    // chart.scrollbarX.startGrip.icon.disabled = true;
+    // chart.scrollbarX.nonScaling = true;
+    // chart.scrollbarX.dragStart = true;
+    // chart.scrollbarX.start.toFixed = 0;
   }, []);
 
   return (

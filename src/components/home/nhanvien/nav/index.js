@@ -18,7 +18,7 @@ export default function NavForStaff() {
     window.location.href = `http://localhost:3000/nav/customer/dang-ki-tiem-chung?id=${ArrayPath[1]}`;
   };
   const onClick5 = () => {
-    window.location.href = `http://localhost:3000/nav/customer/dang-ki-tiem-chung?id=${ArrayPath[1]}`;
+    window.location.href = `http://localhost:3000/nav/staff/data-staff?id=${ArrayPath[1]}`;
   };
 
   return (
