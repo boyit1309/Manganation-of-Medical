@@ -3,9 +3,9 @@ import axios from "axios";
 import { Form, Input, Button, InputNumber, Modal } from "antd";
 
 export default function Create() {
-    const [state, _setState] = useState({
-        sanPham: [],
-      });
+  const [state, _setState] = useState({
+    sanPham: [],
+  });
   const setState = (obj = {}) => {
     _setState((prevState) => ({ ...prevState, ...obj }));
   };
@@ -16,16 +16,15 @@ export default function Create() {
       .then((res) => {
         // console.log("res", res.data);
         setState({
-            sanPham: res.data || [],
-          });
+          sanPham: res.data || [],
+        });
       })
       .catch((error) => console.log(error));
   }, []);
 
-
   const [form] = Form.useForm();
   const { TextArea } = Input;
-  const { isShowModal,sanPham } = state;
+  const { isShowModal, sanPham } = state;
   const showModal = () => {
     setState({
       isShowModal: true,

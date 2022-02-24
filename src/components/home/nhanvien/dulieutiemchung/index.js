@@ -30,10 +30,10 @@ export default function DuLieuTiemChung() {
     });
   }, []);
 
-  const showModal = ({ newKhachHang, newSanPham, PhieuDangky1}) => {
+  const showModal = ({ newKhachHang, newSanPham, PhieuDangky1 }) => {
     setState({
       isShowModal: true,
-      modalData: { ...newKhachHang, ...newSanPham , ...PhieuDangky1 },
+      modalData: { ...newKhachHang, ...newSanPham, ...PhieuDangky1 },
     });
     console.log("modalData", modalData);
   };
@@ -53,8 +53,11 @@ export default function DuLieuTiemChung() {
       .catch(function (error) {
         console.log(error);
       });
+
     axios
-      .delete(`https://61fe8846a58a4e00173c98aa.mockapi.io/phieuDangKyTiem/${modalData.maPhieuDangKy}`)
+      .delete(
+        `https://61fe8846a58a4e00173c98aa.mockapi.io/phieuDangKyTiem/${modalData.maPhieuDangKy}`
+      )
       .then(function (response) {
         console.log(response);
       })
@@ -91,39 +94,38 @@ export default function DuLieuTiemChung() {
           phieuDangKy.length > 0 &&
           phieuDangKy.map((item, index) => {
             let newKhachHang =
-              khachHang.find((khach) => khach.maKhachHang == item.maKhachHang) ||
-              {};
+              khachHang.find(
+                (khach) => khach.maKhachHang == item.maKhachHang
+              ) || {};
             let newSanPham =
               sanPham.find(
                 (khach) => khach.maLoaiSanPham == item.maLoaiSanPham
               ) || {};
+            let PhieuDangky1 = item;
+
             return (
               <div className="card" key={index}>
                 <div>
-                <ul className="data-list">
-                  <li>Tên khách hàng : {newKhachHang.hoTen}</li>
-                  <li>Mã sản phẩm : {newSanPham.tenSanPham}</li>
-                  <li>Mã phiếu đăng ký : {item.maPhieuDangKy}</li>
-                </ul>
-                <div className="data-button"> 
-                  <Button 
-                    className="data-button"
-                    type="primary"
-                    onClick={() => {
-                      showModal({ newKhachHang, newSanPham });
-                    }}
-                  >
-                    Xác nhận tiêm chủng
-                  </Button>
-                </div>
-                
-                
-
+                  <ul className="data-list">
+                    <li>Tên khách hàng : {newKhachHang.hoTen}</li>
+                    <li>Mã sản phẩm : {newSanPham.tenSanPham}</li>
+                    <li>Mã phiếu đăng ký : {item.maPhieuDangKy}</li>
+                  </ul>
+                  <div className="data-button">
+                    <Button
+                      className="data-button"
+                      type="primary"
+                      onClick={() => {
+                        showModal({ newKhachHang, newSanPham, PhieuDangky1 });
+                      }}
+                    >
+                      Xác nhận tiêm chủng
+                    </Button>
+                  </div>
                 </div>
               </div>
             );
           })}
-
       </div>
       <Modal
         title="Thông tin hóa đơn"
