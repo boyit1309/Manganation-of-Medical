@@ -25,11 +25,7 @@ export default function DuLieuTiemChung() {
       });
     });
   }, []);
-  const {
-    sanPham,
-    hoaDon,
-    khachHang,
-  } = state;
+  const { sanPham, hoaDon, khachHang } = state;
 
   return (
     <WrapperStyled>
@@ -41,9 +37,8 @@ export default function DuLieuTiemChung() {
             khachHang.find((khach) => khach.maKhachHang == item.maKhachHang) ||
             {};
           let newSanPham =
-            sanPham.find(
-              (khach) => khach.maLoaiSanPham == item.maSanPham
-            ) || {};
+            sanPham.find((khach) => khach.maLoaiSanPham == item.maSanPham) ||
+            {};
           return (
             <div key={index}>
               <ul>
@@ -56,6 +51,11 @@ export default function DuLieuTiemChung() {
             </div>
           );
         })}
+      <h1>PDF Example with iframe</h1>
+      <iframe
+        src="https://drive.google.com/drive/u/1/my-drive"
+        height="500px"
+      ></iframe>
     </WrapperStyled>
   );
 }

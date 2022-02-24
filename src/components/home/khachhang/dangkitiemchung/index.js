@@ -51,7 +51,7 @@ export default function DangKiTiemChung() {
   for (let i = 0; i < Object.keys(sanPham).length; i++) {
     list[i] = i;
   }
-  console.log("piheudangky", parseInt(phieuDangKy[Object.keys(phieuDangKy).length - 1].maPhieuDangKy) + 1 );
+  // console.log("piheudangky", parseInt(phieuDangKy[Object.keys(phieuDangKy).length - 1].maPhieuDangKy) + 1 );
 
   const onFinish = (values) => {
     setVisible(true);

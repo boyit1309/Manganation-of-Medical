@@ -30,12 +30,12 @@ export default function DuLieuTiemChung() {
     });
   }, []);
 
-  const showModal = ({ newKhachHang, newSanPham }) => {
+  const showModal = ({ newKhachHang, newSanPham, PhieuDangky1}) => {
     setState({
       isShowModal: true,
-      modalData: { ...newKhachHang, ...newSanPham },
+      modalData: { ...newKhachHang, ...newSanPham , ...PhieuDangky1 },
     });
-    console.log("modalData",modalData);
+    console.log("modalData", modalData);
   };
   const handleSubmit = () => {
     axios
@@ -45,7 +45,7 @@ export default function DuLieuTiemChung() {
         donGia: modalData.giaTien,
         giaThanhTien: modalData.giaTien,
         donViTinh: "VNĐ",
-        maHoaDon: parseInt(hoaDon[Object.keys(hoaDon).length - 1].maHoaDon) + 1
+        maHoaDon: parseInt(hoaDon[Object.keys(hoaDon).length - 1].maHoaDon) + 1,
       })
       .then(function (response) {
         console.log(response);
@@ -53,7 +53,15 @@ export default function DuLieuTiemChung() {
       .catch(function (error) {
         console.log(error);
       });
-      setState({ isShowModal: false });
+    axios
+      .delete(`https://61fe8846a58a4e00173c98aa.mockapi.io/phieuDangKyTiem/${modalData.maPhieuDangKy}`)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    setState({ isShowModal: false });
   };
 
   const handleOk = () => {
@@ -88,16 +96,18 @@ export default function DuLieuTiemChung() {
             sanPham.find(
               (khach) => khach.maLoaiSanPham == item.maLoaiSanPham
             ) || {};
+          let PhieuDangky1 = item;
           return (
             <div key={index}>
               <ul>
                 <li>Tên khách hàng : {newKhachHang.hoTen}</li>
-                <li>Mã sản phẩm : {newSanPham.tenSanPham}</li>
+                <li>Tên sản phẩm : {newSanPham.tenSanPham}</li>
                 <li>Mã phiếu đăng ký : {item.maPhieuDangKy}</li>
               </ul>
-              <Button type="primary"
+              <Button
+                type="primary"
                 onClick={() => {
-                  showModal({ newKhachHang, newSanPham });
+                  showModal({ newKhachHang, newSanPham, PhieuDangky1 });
                 }}
               >
                 Xác nhận tiêm chủng
