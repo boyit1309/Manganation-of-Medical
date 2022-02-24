@@ -95,11 +95,11 @@ export default function ThongTinNhanVienChoNhanVien() {
 
   return (
     <WrapperStyled>
-      <h1>Thông tin khách hàng</h1>
+      <h1>Thông tin Nhân Viên</h1>
       <ul>
         <li>ID tài khoản : {nhanVien?.[userID]?.maTaiKhoan}</li>
         <li>Họ và tên : {nhanVien?.[userID]?.tenNhanVien}</li>
-        <li>Ngày sinh : {nhanVien?.[userID]?.ngaySinh.format("L")}</li>
+        <li>Ngày sinh : {nhanVien?.[userID]?.ngaySinh}</li>
         <li>
           Giới tính : {nhanVien?.[userID]?.gioiTinh == true ? "Nam" : "Nữ"}
         </li>

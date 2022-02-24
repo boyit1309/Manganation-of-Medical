@@ -14,12 +14,17 @@ export default function NavForCustomer() {
   const onClick3 = () => {
     window.location.href = `http://localhost:3000/nav/customer/dang-ki-tiem-chung?id=${ArrayPath[1]}`;
   };
+  const onClick4 = () => {
+    window.location.href = `http://localhost:3000/nav/customer/home?id=${ArrayPath[1]}`;
+  };
   return (
     <WrapperStyled>
       <nav>
-        <Link to="/nav/admin/home" exact className="nav-logo">
-          <h1>Quản lý tiêm chủng</h1>
-        </Link>
+        <div className="nav-logo">
+          <a onClick={onClick4} className="nav-links">
+            <h1>Quản lý tiêm chủng</h1>
+          </a>
+        </div>
         <div className="nav-contain">
           <div className="nav-content">
             <a onClick={onClick1} className="nav-links">

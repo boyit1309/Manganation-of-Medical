@@ -15,18 +15,23 @@ export default function NavForStaff() {
     window.location.href = `http://localhost:3000/nav/customer/dang-ki-tiem-chung?id=${ArrayPath[1]}`;
   };
   const onClick4 = () => {
-    window.location.href = `http://localhost:3000/nav/customer/dang-ki-tiem-chung?id=${ArrayPath[1]}`;
+    window.location.href = `http://localhost:3000/nav/staff/statisics?id=${ArrayPath[1]}`;
   };
   const onClick5 = () => {
     window.location.href = `http://localhost:3000/nav/staff/data-staff?id=${ArrayPath[1]}`;
+  };
+  const onClick6 = () => {
+    window.location.href = `http://localhost:3000/nav/staff/home?id=${ArrayPath[1]}`;
   };
 
   return (
     <WrapperStyled>
       <nav>
-        <Link to="/nav/admin/home" exact className="nav-logo">
-          <h1>Quản lý tiêm chủng</h1>
-        </Link>
+        <div className="nav-logo">
+          <a onClick={onClick6} className="nav-links">
+            <h1>Quản lý tiêm chủng</h1>
+          </a>
+        </div>
         <div className="nav-contain">
           <div className="nav-content">
             <a onClick={onClick1} className="nav-links">

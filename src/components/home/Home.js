@@ -19,6 +19,9 @@ import DangKiTiemChung from "./khachhang/dangkitiemchung";
 import SanPhamChoNhanVien from "./nhanvien/thongtinsanpham";
 import ThongTinKhachHangChoNhanVien from "./nhanvien/thongtinkhachhang";
 import ThongTinNhanVienChoNhanVien from "./nhanvien/thongtinnhanvien";
+import HomepageChoNhanVien from "./nhanvien/homepage";
+import HomepageChoKhachHang from "./khachhang/homepage";
+import ThongKe from "./nhanvien/thongke";
 
 export default function Home() {
   return (
@@ -41,12 +44,15 @@ export default function Home() {
 
         {/* cho nhân viên */}
         <Route path="/nav/staff" component={NavForStaff} />
+        <Route path="/nav/staff/home" component={HomepageChoNhanVien} />
         <Route path="/nav/staff/data-product-staff" component={SanPhamChoNhanVien} />
         <Route path="/nav/staff/data-customer" component={ThongTinKhachHangChoNhanVien} />
         <Route path="/nav/staff/data-staff" component={ThongTinNhanVienChoNhanVien} />
+        <Route path="/nav/staff/statisics" component={ThongKe} />
 
         {/* cho khách hàng */}
         <Route path="/nav/customer" component={NavForCustomer} />
+        <Route path="/nav/customer/home" component={HomepageChoKhachHang} />
         <Route
           path="/nav/customer/data-product-customer"
           exact
