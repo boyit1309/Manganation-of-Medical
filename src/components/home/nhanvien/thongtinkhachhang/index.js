@@ -19,38 +19,41 @@ export default function ThongTinKhachHangChoNhanVien() {
       .catch((error) => console.log(error));
   }, []);
 
-  // for (let i = 0; i < Object.keys(nguoiDung).length; i++) {
-  //   if (nguoiDung[i].maTaiKhoan == ArrayPath[1]) {
-  //     userID = i;
-  //   }
-  // }
   const list = [];
   for (let i = 0; i < Object.keys(nguoiDung).length; i++) {
     list[i] = i;
   }
   console.log("hello", list);
-
+  const list__user = [
+    {
+     img: '/image/user-1.jpg',
+     name: "Trường Nguyễn",
+    },
+    {
+      img: '/image/user-2.jpg',
+      name: "Lê Quang Phong",
+    },
+    {
+      img: '/image/user-3.jpg',
+      name: "Duc Tran",
+     },
+     {
+      img: '/image/user-4.png',
+      name: "Nam Thành",
+     },
+    {
+      img: '/image/user-5.jpg',
+      name: "Thành Hiếu",
+    }
+  ]
   const Card = list.map((num) => {
-    // console.log("hello123", nguoiDung[num].tenSanPham);
     return (
-    //   <div className="card">
-    //     <div className="content">
-    //       <div className="content-left">
-    //         <img src={Thuoc} alt="" />
-    //       </div>
-    //       <div className="content-right">
-    //         <div className="title">{state[num].tenSanPham}</div>
-    //         <ul>
-    //           <li>Nguồn gốc : {state[num].nguonGoc}</li>
-    //           <li>Tác dụng : {state[num].tacDung}</li>
-    //           <li>Chống chỉ định : {state[num].chongChiDinh}</li>
-    //           <li>Mã loại sản phẩm : {state[num].maLoaiSanPham}</li>
-    //           <li>Số lượng sản phẩm : {state[num].soLuongSanPham}</li>
-    //         </ul>
-    //       </div>
-    //     </div>
-    //   </div>
-    <ul>
+    <div className="list__profileK">
+      <span className="profile__img">
+        <img src={list__user[num].img} alt="" />
+        <span className="user-name">{list__user[num].name}</span>
+      </span>
+        <ul className="item__profile">
         <li>ID tài khoản : {nguoiDung?.[num]?.maTaiKhoan}</li>
         <li>Họ và tên : {nguoiDung?.[num]?.hoTen}</li>
         <li>Ngày sinh : {nguoiDung?.[num]?.ngaySinh}</li>
@@ -66,14 +69,16 @@ export default function ThongTinKhachHangChoNhanVien() {
         <li>Dân Tộc : {nguoiDung?.[num]?.danToc}</li>
         <li>Nghề Nghiệp : {nguoiDung?.[num]?.ngheNghiep}</li>
         <li>Đơn vị công tác : {nguoiDung?.[num]?.donViCongTac}</li>
-      </ul>
+        </ul>
+      </div>
     );
   });
 
   return (
     <WrapperStyled>
-      <h1>Thông tin khách hàng</h1>
+      <div className="list__profile">
       {Card}
+      </div>
     </WrapperStyled>
   );
 }

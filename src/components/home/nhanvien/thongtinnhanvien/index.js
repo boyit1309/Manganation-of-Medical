@@ -95,8 +95,12 @@ export default function ThongTinNhanVienChoNhanVien() {
 
   return (
     <WrapperStyled>
-      <h1>Thông tin Nhân Viên</h1>
-      <ul>
+    <div className="list__profileK">
+      <span className="profile__img">
+        <img src="/image/user-1.jpg" alt="" />
+        <span className="user-name">Trường Nguyễn</span>
+      </span>
+      <ul className="item__profile">
         <li>ID tài khoản : {nhanVien?.[userID]?.maTaiKhoan}</li>
         <li>Họ và tên : {nhanVien?.[userID]?.tenNhanVien}</li>
         <li>Ngày sinh : {nhanVien?.[userID]?.ngaySinh}</li>
@@ -106,6 +110,7 @@ export default function ThongTinNhanVienChoNhanVien() {
         <li>Số điện thoại : {nhanVien?.[userID]?.sdt}</li>
         <li>Mã nhân viên : {nhanVien?.[userID]?.maNhanVien}</li>
       </ul>
+      </div>
       {/* <Button type="primary" onClick={showModal}>
         Chỉnh sửa
       </Button>

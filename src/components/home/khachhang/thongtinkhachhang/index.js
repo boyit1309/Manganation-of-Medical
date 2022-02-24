@@ -113,8 +113,14 @@ export default function ThongTinKhachHang() {
 
   return (
     <WrapperStyled>
-      <h1>Thông tin khách hàng</h1>
-      <ul>
+    <div className="container">
+      
+     <div className="list__profileK">
+      <span className="profile__img">
+        <img src="/image/user-1.jpg" alt="" />
+        <span className="user-name">Trường Nguyễn</span>
+      </span>
+      <ul className="item__profile">
         <li>ID tài khoản : {nguoiDung?.[userID]?.maTaiKhoan}</li>
         <li>Họ và tên : {hoTen}</li>
         <li>Ngày sinh : {nguoiDung?.[userID]?.ngaySinh}</li>
@@ -131,9 +137,11 @@ export default function ThongTinKhachHang() {
         <li>Nghề Nghiệp : {nguoiDung?.[userID]?.ngheNghiep}</li>
         <li>Đơn vị công tác : {nguoiDung?.[userID]?.donViCongTac}</li>
       </ul>
-      <Button type="primary" onClick={showModal}>
+      </div>
+      <Button className="edit-Profile" type="primary" onClick={showModal}>
         Chỉnh sửa
       </Button>
+    </div>
       <Modal
         title="Chỉnh sửa thông tin cá nhân"
         visible={isOpen}
