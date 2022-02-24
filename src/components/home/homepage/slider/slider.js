@@ -31,8 +31,7 @@ const slider = () => {
                   data-wow-duration="1500ms"
                   title="Giải pháp điện toán đám mây quản lý tối ưu cho các cơ sở tiêm chủng dịch vụ"
                 >
-                  Giải pháp điện toán đám mây quản lý tối ưu cho các cơ sở tiêm
-                  chủng dịch vụ
+                  Giải pháp tiêm chủng kết hợp với quản lý nhân viên, khách hàng rất thuận tiện
                 </h2>
                 <p
                   className="text-title-content animation-text__content"
@@ -40,10 +39,9 @@ const slider = () => {
                   data-wow-duration="1500ms"
                   title="Quản lý toàn diện quy trình TCDV tại các cơ sở tiêm, đáp ứng nhu cầu quản trị vận hành, đồng thời tăng hiệu suất kinh doanh và chăm sóc khách hàng."
                 >
-                  Quản lý toàn diện quy trình TCDV tại các cơ sở tiêm, đáp ứng
-                  nhu cầu quản trị vận hành, đồng thời tăng hiệu suất kinh doanh
-                  và chăm sóc khách hàng.
+                  Quản lý toàn diện các thông tin khách hàng, nhân viên dễ dàng truy cập sửa đổi thông tin
                 </p>
+                {}
                 <a
                   href="#"
                   className="btn btn-gradient animation-text__link ig-animation"
@@ -71,8 +69,8 @@ const slider = () => {
                   data-wow-duration="1500ms"
                   title="Quản lý hiệu quả và chuỗi phòng tiêm"
                 >
-                  Quản lý <span className="cl-blue">hiệu quả</span> phòng tiêm
-                  và chuỗi phòng tiêm
+                  Quản lý <span className="cl-blue">hiệu quả</span> Lịch tiêm của Khách Hàng
+          
                 </h2>
                 <p
                   className="text-title-content animation-text__content"
@@ -80,7 +78,7 @@ const slider = () => {
                   data-wow-duration="1500ms"
                   title="Quản lý toàn diện quy trình TCDV tại các cơ sở tiêm, đáp ứng nhu cầu quản trị vận hành, đồng thời tăng hiệu suất kinh doanh và chăm sóc khách hàng."
                 >
-                  Linh hoạt trong quản lý cơ sở đơn lẻ và quản lý chuỗi cơ sở, tối ưu hóa chi phí đầu tư và nhanh chóng triển khai tại cơ sở mới.
+                  Linh hoạt trong quản lý thông tin khách hàng và lịch tiêm chủng được sắp xếp linh hoạt, phù hợp với từng khách hàng
                 </p>
                 <a
                   href="#"
