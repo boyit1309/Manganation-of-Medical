@@ -77,34 +77,46 @@ export default function DuLieuTiemChung() {
 
   return (
     <WrapperStyled>
-      <h1 data-title>Dữ liệu tiêm chủng</h1>
-      {phieuDangKy &&
-        phieuDangKy.length > 0 &&
-        phieuDangKy.map((item, index) => {
-          let newKhachHang =
-            khachHang.find((khach) => khach.maKhachHang == item.maKhachHang) ||
-            {};
-          let newSanPham =
-            sanPham.find(
-              (khach) => khach.maLoaiSanPham == item.maLoaiSanPham
-            ) || {};
-          return (
-            <div key={index}>
-              <ul>
-                <li>Tên khách hàng : {newKhachHang.hoTen}</li>
-                <li>Mã sản phẩm : {newSanPham.tenSanPham}</li>
-                <li>Mã phiếu đăng ký : {item.maPhieuDangKy}</li>
-              </ul>
-              <Button type="primary"
-                onClick={() => {
-                  showModal({ newKhachHang, newSanPham });
-                }}
-              >
-                Xác nhận tiêm chủng
-              </Button>
-            </div>
-          );
-        })}
+      <h1 className="data-title">Dữ liệu tiêm chủng</h1>
+      <div className="data-wrap">
+        {phieuDangKy &&
+          phieuDangKy.length > 0 &&
+          phieuDangKy.map((item, index) => {
+            let newKhachHang =
+              khachHang.find((khach) => khach.maKhachHang == item.maKhachHang) ||
+              {};
+            let newSanPham =
+              sanPham.find(
+                (khach) => khach.maLoaiSanPham == item.maLoaiSanPham
+              ) || {};
+            return (
+              <div className="card" key={index}>
+                <div>
+                <ul className="data-list">
+                  <li>Tên khách hàng : {newKhachHang.hoTen}</li>
+                  <li>Mã sản phẩm : {newSanPham.tenSanPham}</li>
+                  <li>Mã phiếu đăng ký : {item.maPhieuDangKy}</li>
+                </ul>
+                <div className="data-button"> 
+                  <Button 
+                    className="data-button"
+                    type="primary"
+                    onClick={() => {
+                      showModal({ newKhachHang, newSanPham });
+                    }}
+                  >
+                    Xác nhận tiêm chủng
+                  </Button>
+                </div>
+                
+                
+
+                </div>
+              </div>
+            );
+          })}
+
+      </div>
       <Modal
         title="Thông tin hóa đơn"
         visible={isShowModal}

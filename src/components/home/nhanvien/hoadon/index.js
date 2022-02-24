@@ -33,29 +33,32 @@ export default function DuLieuTiemChung() {
 
   return (
     <WrapperStyled>
-      <h1 data-title>Dữ liệu tiêm chủng</h1>
-      {hoaDon &&
-        hoaDon.length > 0 &&
-        hoaDon.map((item, index) => {
-          let newKhachHang =
-            khachHang.find((khach) => khach.maKhachHang == item.maKhachHang) ||
-            {};
-          let newSanPham =
-            sanPham.find(
-              (khach) => khach.maLoaiSanPham == item.maSanPham
-            ) || {};
-          return (
-            <div key={index}>
-              <ul>
-                <li>Tên khách hàng : {newKhachHang.hoTen}</li>
-                <li>Mã sản phẩm : {newSanPham.tenSanPham}</li>
-                <li>Đơn giá : {item.donGia} VNĐ</li>
-                <li>Đơn vị tính tiền : {item.donViTinh}</li>
-                <li>Mã hóa đơn : {item.maHoaDon}</li>
-              </ul>
-            </div>
-          );
-        })}
+      <h1 className="data-title">Hóa đơn tiêm chủng</h1>
+      <div className="data-wrap">
+        {hoaDon &&
+          hoaDon.length > 0 &&
+          hoaDon.map((item, index) => {
+            let newKhachHang =
+              khachHang.find((khach) => khach.maKhachHang == item.maKhachHang) ||
+              {};
+            let newSanPham =
+              sanPham.find(
+                (khach) => khach.maLoaiSanPham == item.maSanPham
+              ) || {};
+            return (
+              <div className="card" key={index}>
+                <ul className="data-list">
+                  <li>Tên khách hàng : {newKhachHang.hoTen}</li>
+                  <li>Mã sản phẩm : {newSanPham.tenSanPham}</li>
+                  <li>Đơn giá : {item.donGia} VNĐ</li>
+                  <li>Đơn vị tính tiền : {item.donViTinh}</li>
+                  <li>Mã hóa đơn : {item.maHoaDon}</li>
+                </ul>
+              </div>
+            );
+          })}
+
+      </div>
     </WrapperStyled>
   );
 }
