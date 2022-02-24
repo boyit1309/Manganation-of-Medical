@@ -54,7 +54,7 @@ export default function DuLieuTiemChung() {
 
   return (
     <WrapperStyled>
-      <h1>Dữ liệu tiêm chủng</h1>
+      <h1 data-title>Dữ liệu tiêm chủng</h1>
       {phieuDangKy &&
         phieuDangKy.length > 0 &&
         phieuDangKy.map((item, index) => {

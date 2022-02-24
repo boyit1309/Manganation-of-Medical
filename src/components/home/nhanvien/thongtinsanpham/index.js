@@ -14,6 +14,7 @@ export default function SanPhamChoNhanVien() {
     axios
       .get(`https://61fe8846a58a4e00173c98aa.mockapi.io/sanPham`)
       .then((res) => {
+        console.log(res);
         _setState(res.data);
       })
       .catch((error) => console.log(error));

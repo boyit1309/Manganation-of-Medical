@@ -3,20 +3,13 @@ import styled from "styled-components";
 
 export const WrapperStyled = styled.div`
   nav {
-    display: flex;
-    background: green;
+    height: 54px;
+    background-color: #1b2a49;
     color: white;
   }
 
-  .nav-logo {
-    display: block;
-    width: 20%;
-    text-align: center;
-    margin-top: 10px;
-  }
-
   .nav-contain {
-    width: 80%;
+    width: 100%;
     display: flex;
   }
 
@@ -29,5 +22,13 @@ export const WrapperStyled = styled.div`
     display: block;
     text-decoration-line: none;
     color : white;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .nav-links:hover{
+    transform: scale(1.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
   }
 `;

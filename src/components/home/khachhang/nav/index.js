@@ -20,12 +20,12 @@ export default function NavForCustomer() {
   return (
     <WrapperStyled>
       <nav>
-        <div className="nav-logo">
-          <a onClick={onClick4} className="nav-links">
-            <h1>Quản lý tiêm chủng</h1>
-          </a>
-        </div>
         <div className="nav-contain">
+          <div className="nav-content">
+            <a onClick={onClick1} className="nav-links">
+              Quản lý tiêm chủng
+            </a>
+          </div>
           <div className="nav-content">
             <a onClick={onClick1} className="nav-links">
               Thông tin sản phẩm
