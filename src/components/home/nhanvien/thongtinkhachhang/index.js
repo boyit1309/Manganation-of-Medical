@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { WrapperStyled } from "./styled";
 import axios from "axios";
-
+import Footer from "../../homepage/footer/footer";
 export default function ThongTinKhachHangChoNhanVien() {
   const [nguoiDung, setNguoiDung] = useState([]);
 //   const Path = window.location.href;
@@ -158,6 +158,7 @@ export default function ThongTinKhachHangChoNhanVien() {
       <div className="list__profile">
       {Card}
       </div>
+      <Footer/>
     </WrapperStyled>
   );
 }

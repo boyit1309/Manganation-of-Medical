@@ -14,6 +14,11 @@ export const WrapperStyled = styled.div`
     height: 300px;
     background-color: #329e4e;
   }
+  .title__Sp{
+    text-align:center;
+    margin-bottom: 20px;
+    font-size: 40px;
+  }
   .content {
     /* background-color: blue; */
     width: 95%;

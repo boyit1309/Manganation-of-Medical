@@ -32,6 +32,7 @@ export default function DuLieuTiemChung() {
       isShowModal: true,
       modalData: { ...newKhachHang, ...newSanPham },
     });
+    console.log("modalData",modalData);
   };
 
   const handleOk = () => {
@@ -72,7 +73,7 @@ export default function DuLieuTiemChung() {
                 <li>Mã sản phẩm : {newSanPham.tenSanPham}</li>
                 <li>Mã phiếu đăng ký : {item.maPhieuDangKy}</li>
               </ul>
-              <Button
+              <Button type="primary"
                 onClick={() => {
                   showModal({ newKhachHang, newSanPham });
                 }}
@@ -97,7 +98,8 @@ export default function DuLieuTiemChung() {
         ]}
       >
         <div>Tên khách hàng : {modalData.hoTen}</div>
-        <div>Tên khách hàng : {modalData.tenSanPham}</div>
+        <div>Tên sản phẩm : {modalData.tenSanPham}</div>
+        <div>Tên sản phẩm : {modalData.giaTien}</div>
       </Modal>
     </WrapperStyled>
   );

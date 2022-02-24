@@ -5,6 +5,7 @@ export const WrapperStyled = styled.div`
   ul{
     list-style-type: none;
   }
+  
   .modal-background{
     background-color: red;
   }
@@ -43,13 +44,13 @@ export const WrapperStyled = styled.div`
   .body {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    margin-bottom: 50px;
   }
   .card {
-    margin: 15px;
+    margin: 30px 3.16667% 30px 3.16667%;
     border-radius: 20px;
     width: 27%;
-    box-shadow: 0 0.2rem 0.3rem 0 rgb(0 0 0 / 20%);
+    box-shadow: 0 0.3rem 0.5rem 0 rgb(0 0 0 / 20%);
   }
   .content {
     /* background-color: blue; */

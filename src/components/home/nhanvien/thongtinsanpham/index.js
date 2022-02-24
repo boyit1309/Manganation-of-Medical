@@ -3,80 +3,113 @@ import { WrapperStyled } from "./styled";
 // import Card from "./container";
 import axios from "axios";
 import Thuoc from "../../../asset/pic/thuoc.jpg";
-import { Modal, Button, Form, Input } from "antd";
+import { Modal, Button, Form, Input, InputNumber } from "antd";
+import Create from "./create";
+import Footer from "../../homepage/footer/footer";
 
 export default function SanPhamChoNhanVien() {
-  const [state, _setState] = useState([]);
-  const [isOpen, setIsOpen] = useState(false);
+  const [state, _setState] = useState({
+    sanPham: [],
+  });
+  const setState = (obj = {}) => {
+    _setState((prevState) => ({ ...prevState, ...obj }));
+  };
+
+  // const [isOpen, setIsOpen] = useState(false);
   const [form] = Form.useForm();
 
   useEffect(() => {
     axios
       .get(`https://61fe8846a58a4e00173c98aa.mockapi.io/sanPham`)
       .then((res) => {
-        console.log(res);
-        _setState(res.data);
+        setState({
+          sanPham: res.data || [],
+        });
       })
       .catch((error) => console.log(error));
-  }, [state]);
+  }, []);
 
-  const showModal = () => {
-    setIsOpen(true);
+  const { TextArea } = Input;
+
+  const showModal = ({ sanPhamHienTai }) => {
+    console.log("sanphamhientai", { ...sanPhamHienTai });
+    form.setFieldsValue({ ...sanPhamHienTai });
+    setState({
+      isShowModal: true,
+      modalData: { ...sanPhamHienTai },
+    });
+    // console.log("modalData",modalData);
   };
 
-  const onSubmit = useCallback((values) => {
-    // do your staff with values
-    console.log("hello",values.tenDangNhap);
-  }, []);
+  const onSubmit = useCallback(
+    (values) => {
+      // do your staff with values
+      console.log("hello", values.maLoaiSanPham);
+      axios
+        .put(
+          `https://61fe8846a58a4e00173c98aa.mockapi.io/sanPham/${values.maLoaiSanPham}`,
+          {
+            tenSanPham: values.tenSanPham,
+            nguonGoc: values.nguonGoc,
+            tacDung: values.tacDung,
+            chongChiDinh: values.chongChiDinh,
+            soLuongSanPham: values.soLuongSanPham,
+            giaTien: values.giaTien,
+          }
+        )
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+
+      setState({ isShowModal: false });
+    },
+    [form]
+  );
 
   const closePopup = useCallback(() => {
     form.resetFields();
-    setIsOpen(false);
+    setState({ isShowModal: false });
   }, [form]);
 
-  const list = [];
-  for (let i = 0; i < Object.keys(state).length; i++) {
-    list[i] = i;
-  }
-  console.log("hello", list);
+  const { sanPham, isShowModal, modalData = {} } = state;
+  // const list = [];
+  // for (let i = 0; i < Object.keys(state).length; i++) {
+  //   list[i] = i;
+  // }
+  // console.log("hello", list);
 
-  const Card = list.map((num) => {
-    console.log("hello123", state[num].tenSanPham);
-
+  const Card = sanPham.map((item, index) => {
+    // console.log("hello123", state[num].tenSanPham);
+    var sanPhamHienTai = { ...item };
+    // console.log("sanPhamHienTai",sanPhamHienTai);
     return (
-      <div className="card">
+      <div key={index} className="card">
         <div className="content">
           <div className="content-left">
             <img src={Thuoc} alt="" />
           </div>
           <div className="content-right">
-            <div className="title">{state[num].tenSanPham}</div>
+            <div className="title">{item.tenSanPham}</div>
             <ul className="list-product">
-              <li>Nguồn gốc : {state[num].nguonGoc}</li>
-              <li>Tác dụng : {state[num].tacDung}</li>
-              <li>Chống chỉ định : {state[num].chongChiDinh}</li>
-              <li>Mã loại sản phẩm : {state[num].maLoaiSanPham}</li>
-              <li>Số lượng sản phẩm : {state[num].soLuongSanPham}</li>
-              <Modal className="modal-background"
-                title="Chỉnh sửa thông tin sản phẩm"
-                visible={isOpen}
-                onOk={form.submit}
-                onCancel={closePopup}
-              >
-                <Form form={form} onFinish={onSubmit}>
-                  <Form.Item
-                    label="Tài khoản"
-                    name="tenDangNhap"
-                    style={{ width: "300px" }}
-                    rules={[{ required: true, message: "Hãy nhập tài khoản" }]}
-                  >
-                    <Input defaultValue={state[num].tenSanPham}  />
-                  </Form.Item>
-                </Form>
-              </Modal>
+              <li>Mã loại sản phẩm : {item.maLoaiSanPham}</li>
+              <li>Nguồn gốc : {item.nguonGoc}</li>
+              <li>Tác dụng : {item.tacDung}</li>
+              <li>Chống chỉ định : {item.chongChiDinh}</li>
+              <li>Số lượng sản phẩm : {item.soLuongSanPham}</li>
+              <li>Giá tiền : {item.giaTien} VNĐ</li>
             </ul>
-            <Button className="product-edit" type="primary" onClick={showModal}>
-                Chỉnh sửa
+            <Button
+              className="product-edit"
+              type="primary"
+              onClick={() => {
+                // console.log("item",item)
+                showModal({ sanPhamHienTai });
+              }}
+            >
+              Chỉnh sửa
             </Button>
           </div>
         </div>
@@ -88,8 +121,77 @@ export default function SanPhamChoNhanVien() {
     <WrapperStyled>
       <div className="product-contant">
         <h1 className="product-tittle">Các loại sản phẩm</h1>
+        <Create />
         <div className="body">{Card}</div>
 
+        <Modal
+          className="modal-background"
+          title="Chỉnh sửa thông tin sản phẩm"
+          visible={isShowModal}
+          onOk={form.submit}
+          onCancel={closePopup}
+        >
+          <Form
+            form={form}
+            onFinish={onSubmit}
+            labelCol={{ span: 8 }}
+            wrapperCol={{ span: 14 }}
+          >
+            <Form.Item
+              label="Tên sản phẩm"
+              name="tenSanPham"
+              rules={[{ required: true, message: "Hãy nhập tên sản phẩm" }]}
+            >
+              <Input />
+            </Form.Item>
+            <Form.Item
+              label="Nguốn gốc"
+              name="nguonGoc"
+              rules={[{ required: true, message: "Hãy nhập nguồn gốc" }]}
+            >
+              <Input />
+            </Form.Item>
+            <Form.Item
+              label="Tác dụng"
+              name="tacDung"
+              rules={[{ required: true, message: "Hãy nhập tác dụng" }]}
+            >
+              <TextArea rows={4} />
+            </Form.Item>
+            <Form.Item
+              label="Chống chỉ định"
+              name="chongChiDinh"
+              rules={[{ required: true, message: "Hãy nhập chống chỉ định" }]}
+            >
+              <TextArea rows={4} />
+            </Form.Item>
+            <Form.Item
+              label="Số lượng sản phẩm"
+              name="soLuongSanPham"
+              rules={[
+                { required: true, message: "Hãy nhập số lượng sản phẩm" },
+              ]}
+            >
+              <InputNumber />
+            </Form.Item>
+            <Form.Item
+              label="Giá tiền"
+              name="giaTien"
+              rules={[{ required: true, message: "Hãy nhập giá tiền" }]}
+              // style={{width:"450px"}}
+            >
+              <InputNumber />
+            </Form.Item>
+            <Form.Item
+              label="Mã loại sản phẩm"
+              name="maLoaiSanPham"
+              rules={[{ required: true, message: "Hãy nhập mã loại sản phẩm" }]}
+            >
+              <Input disabled />
+            </Form.Item>
+          </Form>
+        </Modal>
+        <Footer />
       </div>
     </WrapperStyled>
   );
