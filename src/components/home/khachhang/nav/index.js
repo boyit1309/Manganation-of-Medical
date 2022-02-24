@@ -22,7 +22,7 @@ export default function NavForCustomer() {
       <nav>
         <div className="nav-contain">
           <div className="nav-content">
-            <a onClick={onClick1} className="nav-links">
+            <a onClick={onClick4} className="nav-links">
               Quản lý tiêm chủng
             </a>
           </div>

@@ -121,7 +121,7 @@ export default function ThongTinKhachHang() {
      <div className="list__profileK">
       <span className="profile__img">
         <img src="/image/user-1.jpg" alt="" />
-        <span className="user-name">Trường Nguyễn</span>
+        <span className="user-name">{hoTen}</span>
         <span onClick ={editImg} className="edit__img">
         <i class="fa-solid fa-camera"></i>
         </span>
