@@ -112,16 +112,9 @@ export default function ThongTinKhachHang() {
     setIsOpen(false);
   };
 
-<<<<<<< HEAD
-  const closePopup = useCallback(() => {
-    form.resetFields();
-    setIsOpen(false);
-  }, [form]);
   const editImg = ()=>{
     console.log("hi");
   }
-=======
->>>>>>> 2a9aa8861a265155d33ed4318881928ab8780221
   return (
     <WrapperStyled>
     <div className="container">
