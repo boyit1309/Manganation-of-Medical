@@ -26,49 +26,128 @@ export default function ThongTinKhachHangChoNhanVien() {
   console.log("hello", list);
   const list__user = [
     {
-     img: '/image/user-1.jpg',
-     name: "Trường Nguyễn",
+      img: '/image/ava-1.jpg',
     },
     {
-      img: '/image/user-2.jpg',
-      name: "Lê Quang Phong",
-    },
-    {
-      img: '/image/user-3.jpg',
-      name: "Duc Tran",
+      img: '/image/ava-2.jpg',
      },
      {
-      img: '/image/user-4.png',
-      name: "Nam Thành",
+      img: '/image/ava-3.jpg',
      },
     {
-      img: '/image/user-5.jpg',
-      name: "Thành Hiếu",
-    }
+      img: '/image/ava-4.jpg',
+    },
+    {
+      img: '/image/ava-5.jpg',
+     },
+     {
+       img: '/image/ava-6.jpg',
+     },
+     {
+       img: '/image/ava-7.jpg',
+      },
+      {
+       img: '/image/ava-8.jpg',
+      },
+     {
+       img: '/image/ava-9.jpg',
+     },
+     {
+      img: '/image/ava-10.jpg',
+     },
+     {
+       img: '/image/ava-11.jpg',
+     },
+     {
+       img: '/image/ava-12.jpg',
+      },
+      {
+       img: '/image/ava-13.jpg',
+      },
+     {
+       img: '/image/ava-14.jpg',
+     },
+     {
+       img: '/image/ava-15.jpg',
+      },
+      {
+        img: '/image/ava-16.jpg',
+      },
+      {
+        img: '/image/ava-1.jpg',
+       },
+       {
+         img: '/image/ava-1.jpg',
+       },
+       {
+         img: '/image/ava-2.jpg',
+        },
+        {
+         img: '/image/ava-3.jpg',
+        },
+       {
+         img: '/image/ava-4.jpg',
+       },
+       {
+         img: '/image/ava-5.jpg',
+        },
+        {
+          img: '/image/ava-6.jpg',
+        },
+        {
+          img: '/image/ava-7.jpg',
+         },
+         {
+          img: '/image/ava-8.jpg',
+         },
+        {
+          img: '/image/ava-9.jpg',
+        },
+        {
+         img: '/image/ava-10.jpg',
+        },
+        {
+          img: '/image/ava-11.jpg',
+        },
+        {
+          img: '/image/ava-12.jpg',
+         },
+         {
+          img: '/image/ava-13.jpg',
+         },
+        {
+          img: '/image/ava-14.jpg',
+        },
+        {
+          img: '/image/ava-15.jpg',
+         },
+         {
+           img: '/image/ava-16.jpg',
+         },
   ]
   const Card = list.map((num) => {
     return (
     <div className="list__profileK">
       <span className="profile__img">
         <img src={list__user[num].img} alt="" />
-        <span className="user-name">{list__user[num].name}</span>
+        <span className="user-name">{nguoiDung?.[num]?.hoTen}</span>
       </span>
         <ul className="item__profile">
-        <li>ID tài khoản : {nguoiDung?.[num]?.maTaiKhoan}</li>
-        <li>Họ và tên : {nguoiDung?.[num]?.hoTen}</li>
-        <li>Ngày sinh : {nguoiDung?.[num]?.ngaySinh}</li>
-        <li>
-          Giới tính : {nguoiDung?.[num]?.gioiTinh == true ? "Nam" : "Nữ"}
-        </li>
-        <li>Địa chỉ : {nguoiDung?.[num]?.diaChi}</li>
-        <li>Tuổi : {nguoiDung?.[num]?.tuoi}</li>
-        <li>Số điện thoại : {nguoiDung?.[num]?.sdt}</li>
-        <li>Mail : {nguoiDung?.[num]?.mail}</li>
-        <li>Số CMND : {nguoiDung?.[num]?.cmnd}</li>
-        <li>Số BHYT : {nguoiDung?.[num]?.bhyt}</li>
-        <li>Dân Tộc : {nguoiDung?.[num]?.danToc}</li>
-        <li>Nghề Nghiệp : {nguoiDung?.[num]?.ngheNghiep}</li>
-        <li>Đơn vị công tác : {nguoiDung?.[num]?.donViCongTac}</li>
+          <li>ID tài khoản : {nguoiDung?.[num]?.maTaiKhoan}</li>
+          <li>Họ và tên : {nguoiDung?.[num]?.hoTen}</li>
+          <li>Ngày sinh : {nguoiDung?.[num]?.ngaySinh}</li>
+          <li>
+            Giới tính : {nguoiDung?.[num]?.gioiTinh == true ? "Nam" : "Nữ"}
+          </li>
+          <li>Địa chỉ : {nguoiDung?.[num]?.diaChi}</li>
+          <li>Tuổi : {nguoiDung?.[num]?.tuoi}</li>
+          <li>Số điện thoại : {nguoiDung?.[num]?.sdt}</li>
+          <li>Mail : {nguoiDung?.[num]?.mail}</li>
+          <li>Số CMND : {nguoiDung?.[num]?.cmnd}</li>
+          <li>Số BHYT : {nguoiDung?.[num]?.bhyt}</li>
+          <li>Dân Tộc : {nguoiDung?.[num]?.danToc}</li>
+          <li>Nghề Nghiệp : {nguoiDung?.[num]?.ngheNghiep}</li>
+          <li>Đơn vị công tác : {nguoiDung?.[num]?.donViCongTac}</li>
         </ul>
       </div>
     );
