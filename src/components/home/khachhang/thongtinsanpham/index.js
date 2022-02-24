@@ -44,6 +44,9 @@ export default function SanPhamChoKhachHang() {
       img: '/image/sp7.jpg',
     }
   ]
+  const goToRegistration = ()=>{
+    console.log("hello");
+  }
   const Card = list.map((num) => {
     console.log("hello123", state[num].tenSanPham);
     return (
@@ -51,7 +54,7 @@ export default function SanPhamChoKhachHang() {
         <div className="content">
           <div className="content-left">
             <img src={listImg[num].img} alt="" />
-            <button className="buy__product">Mua Ngay</button>
+            <button onClick={goToRegistration} className="buy__product">Đăng Ký Ngay</button>
           </div>
           <div className="content-right">
             <div className="title">{state[num].tenSanPham}</div>
