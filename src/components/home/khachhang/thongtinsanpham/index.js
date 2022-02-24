@@ -3,7 +3,7 @@ import { WrapperStyled } from "./styled";
 // import Card from "./container";
 import axios from "axios";
 import Slider from "./Slider/slider";
-
+import Footer from "../../homepage/footer/footer";
 export default function SanPhamChoKhachHang() {
   const [state, _setState] = useState([]);
 
@@ -78,7 +78,6 @@ export default function SanPhamChoKhachHang() {
         <div className="content">
           <div className="content-left">
             <img src={listImg[num].img} alt="" />
-            <button onClick={goToRegistration} className="buy__product">Đăng Ký Ngay</button>
           </div>
           <div className="content-right">
             <div className="title">{state[num].tenSanPham}</div>
@@ -89,6 +88,7 @@ export default function SanPhamChoKhachHang() {
               <li>Mã loại sản phẩm : {state[num].maLoaiSanPham}</li>
               <li>Số lượng sản phẩm : {state[num].soLuongSanPham}</li>
             </ul>
+            <button onClick={goToRegistration} className="buy__product">Đăng Ký Ngay</button>
           </div>
         </div>
       </div>
@@ -100,6 +100,7 @@ export default function SanPhamChoKhachHang() {
     <Slider/>
       <h1 className="title__Sp">Danh mục vaccine</h1>
       <div className="body">{Card}</div>
+      <Footer />
     </WrapperStyled>
   );
 }
