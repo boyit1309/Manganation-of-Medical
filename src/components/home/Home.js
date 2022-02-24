@@ -23,6 +23,7 @@ import HomepageChoNhanVien from "./nhanvien/homepage";
 import HomepageChoKhachHang from "./khachhang/homepage";
 import ThongKe from "./nhanvien/thongke";
 import DuLieuTiemChung from "./nhanvien/dulieutiemchung";
+import HoaDon from "./nhanvien/hoadon";
 
 export default function Home() {
   return (
@@ -34,14 +35,14 @@ export default function Home() {
         <Route path="/registration" exact component={Registration} />
 
         {/* cho admin */}
-        <Route path="/nav/admin" component={Nav} />
+        {/* <Route path="/nav/admin" component={Nav} />
         <Route path="/nav/admin/home" exact component={Homepage} />
         <Route path="/nav/admin/bangsp" exact component={BangSp} />
         <Route path="/nav/admin/dktiemchung" exact component={DKTiemChung} />
         <Route path="/nav/admin/chart1" exact component={Chart1} />
         <Route path="/nav/admin/test" exact component={Test} />
         <Route path="/nav/admin/chart2" exact component={Chart2} />
-        <Route path="/nav/admin/peopledata" exact component={PeopleData} />
+        <Route path="/nav/admin/peopledata" exact component={PeopleData} /> */}
 
         {/* cho nhân viên */}
         <Route path="/nav/staff" component={NavForStaff} />
@@ -51,6 +52,7 @@ export default function Home() {
         <Route path="/nav/staff/data-staff" component={ThongTinNhanVienChoNhanVien} />
         <Route path="/nav/staff/statisics" component={ThongKe} />
         <Route path="/nav/staff/data-vaccination" component={DuLieuTiemChung} />
+        <Route path="/nav/staff/receipt" component={HoaDon} />
 
         {/* cho khách hàng */}
         <Route path="/nav/customer" component={NavForCustomer} />

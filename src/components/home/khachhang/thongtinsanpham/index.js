@@ -42,6 +42,27 @@ export default function SanPhamChoKhachHang() {
     },
     {
       img: '/image/sp7.jpg',
+    },
+    {
+      img: '/image/sp1.jpg',
+    },
+    {
+      img: '/image/sp2.jpg',
+    },
+    {
+      img: '/image/sp3.jpg',
+    },
+    {
+      img: '/image/sp4.jpg',
+    },
+    {
+      img: '/image/sp5.jpg',
+    },
+    {
+      img: '/image/sp6.png',
+    },
+    {
+      img: '/image/sp7.jpg',
     }
   ]
   const Path = window.location.href;

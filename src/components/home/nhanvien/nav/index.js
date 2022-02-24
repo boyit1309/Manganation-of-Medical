@@ -23,6 +23,9 @@ export default function NavForStaff() {
   const onClick6 = () => {
     window.location.href = `http://localhost:3000/nav/staff/home?id=${ArrayPath[1]}`;
   };
+  const onClick7 = () => {
+    window.location.href = `http://localhost:3000/nav/staff/receipt?id=${ArrayPath[1]}`;
+  };
 
   return (
     <WrapperStyled>
@@ -56,6 +59,11 @@ export default function NavForStaff() {
           <div className="nav-content">
             <a onClick={onClick5} className="nav-links">
               Thông tin nhân viên
+            </a>
+          </div>
+          <div className="nav-content">
+            <a onClick={onClick7} className="nav-links">
+              Hóa đơn
             </a>
           </div>
           <div className="nav-content">

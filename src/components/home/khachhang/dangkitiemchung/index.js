@@ -45,13 +45,13 @@ export default function DangKiTiemChung() {
   const newData = nguoiDung?.length
     ? nguoiDung.find((item) => item.maTaiKhoan == ArrayPath[1])
     : {};
-  console.log("hello123",newData);  
+  // console.log("hello123",newData);  
 
   const list = [];
   for (let i = 0; i < Object.keys(sanPham).length; i++) {
     list[i] = i;
   }
-  // console.log("hello", sanPham);
+  console.log("piheudangky", parseInt(phieuDangKy[Object.keys(phieuDangKy).length - 1].maPhieuDangKy) + 1 );
 
   const onFinish = (values) => {
     setVisible(true);
@@ -59,7 +59,7 @@ export default function DangKiTiemChung() {
       .post(`https://61fe8846a58a4e00173c98aa.mockapi.io/phieuDangKyTiem`, {
         maKhachHang: newData.maKhachHang,
         maLoaiSanPham: values.maLoaiSanPham,
-        maPhieuDangKy: Object.keys(phieuDangKy).length + 1,
+        maPhieuDangKy: parseInt(phieuDangKy[Object.keys(phieuDangKy).length - 1].maPhieuDangKy) + 1  ,
       })
       .then(function (response) {
         console.log(response);

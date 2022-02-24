@@ -8,6 +8,7 @@ export default function DuLieuTiemChung() {
     phieuDangKy: [],
     khachHang: [],
     sanPham: [],
+    hoaDon: [],
   });
   const setState = (obj = {}) => {
     _setState((prevState) => ({ ...prevState, ...obj }));
@@ -18,11 +19,13 @@ export default function DuLieuTiemChung() {
       axios.get(`https://61fe8846a58a4e00173c98aa.mockapi.io/phieuDangKyTiem`),
       axios.get(`https://61fe8846a58a4e00173c98aa.mockapi.io/khachHang`),
       axios.get(`https://61fe8846a58a4e00173c98aa.mockapi.io/sanPham`),
+      axios.get(`https://61fe8c59a58a4e00173c98cc.mockapi.io/hoaDon`),
     ]).then((res) => {
       setState({
         phieuDangKy: res[0].data || [],
         khachHang: res[1].data || [],
         sanPham: res[2].data || [],
+        hoaDon: res[3].data || [],
       });
     });
   }, []);
@@ -33,6 +36,24 @@ export default function DuLieuTiemChung() {
       modalData: { ...newKhachHang, ...newSanPham },
     });
     console.log("modalData",modalData);
+  };
+  const handleSubmit = () => {
+    axios
+      .post(`https://61fe8c59a58a4e00173c98cc.mockapi.io/hoaDon`, {
+        maKhachHang: modalData.maKhachHang,
+        maSanPham: modalData.maLoaiSanPham,
+        donGia: modalData.giaTien,
+        giaThanhTien: modalData.giaTien,
+        donViTinh: "VNĐ",
+        maHoaDon: parseInt(hoaDon[Object.keys(hoaDon).length - 1].maHoaDon) + 1
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+      setState({ isShowModal: false });
   };
 
   const handleOk = () => {
@@ -47,6 +68,7 @@ export default function DuLieuTiemChung() {
   };
   const {
     sanPham,
+    hoaDon,
     khachHang,
     phieuDangKy,
     isShowModal,
@@ -92,7 +114,7 @@ export default function DuLieuTiemChung() {
           <Button key="back" onClick={handleCancel}>
             Quay lại
           </Button>,
-          <Button key="submit" type="primary" onClick={handleOk}>
+          <Button key="submit" type="primary" onClick={handleSubmit}>
             Xác nhận
           </Button>,
         ]}
