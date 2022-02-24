@@ -35,11 +35,11 @@ export default function ThongTinNhanVienChoNhanVien() {
         <ul className="item__profile">
           <li>ID tài khoản : {nhanVien?.[userID]?.maTaiKhoan}</li>
           <li>Họ và tên : {nhanVien?.[userID]?.tenNhanVien}</li>
-          <li>Ngày sinh : {nhanVien?.[userID]?.ngaySinh}</li>
+          <li>Ngày sinh : {nhanVien?.[userID]?.ngaySinh.split("T")[0]}</li>
           <li>
             Giới tính : {nhanVien?.[userID]?.gioiTinh == true ? "Nam" : "Nữ"}
           </li>
-          <li>Số điện thoại : {nhanVien?.[userID]?.sdt}</li>
+          <li>Số điện thoại : {nhanVien?.[userID]?.soDienThoai}</li>
           <li>Mã nhân viên : {nhanVien?.[userID]?.maNhanVien}</li>
         </ul>
       </div>

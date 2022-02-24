@@ -111,6 +111,8 @@ export default function ThongTinKhachHang() {
 
     setIsOpen(false);
   };
+  const ngaySinh = nguoiDung?.[userID]?.ngaySinh.split("T");
+  // console.log(ngaySinh,"hello");
 
   const editImg = ()=>{
     console.log("hi");
@@ -129,7 +131,7 @@ export default function ThongTinKhachHang() {
       <ul className="item__profile">
         <li>ID tài khoản : {nguoiDung?.[userID]?.maTaiKhoan}</li>
         <li>Họ và tên : {hoTen}</li>
-        <li>Ngày sinh : {nguoiDung?.[userID]?.ngaySinh}</li>
+        <li>Ngày sinh : {ngaySinh?.[0]}</li>
         <li>
           Giới tính : {nguoiDung?.[userID]?.gioiTinh == true ? "Nam" : "Nữ"}
         </li>

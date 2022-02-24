@@ -132,7 +132,7 @@ export default function ThongTinKhachHangChoNhanVien() {
         <ul className="item__profile">
           <li>ID tài khoản : {nguoiDung?.[num]?.maTaiKhoan}</li>
           <li>Họ và tên : {nguoiDung?.[num]?.hoTen}</li>
-          <li>Ngày sinh : {nguoiDung?.[num]?.ngaySinh}</li>
+          <li>Ngày sinh : {nguoiDung?.[num]?.ngaySinh.split("T")[0]}</li>
           <li>
             Giới tính : {nguoiDung?.[num]?.gioiTinh == true ? "Nam" : "Nữ"}
           </li>
