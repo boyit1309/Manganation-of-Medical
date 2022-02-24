@@ -50,16 +50,13 @@ export default function SanPhamChoNhanVien() {
           </div>
           <div className="content-right">
             <div className="title">{state[num].tenSanPham}</div>
-            <ul>
+            <ul className="list-product">
               <li>Nguồn gốc : {state[num].nguonGoc}</li>
               <li>Tác dụng : {state[num].tacDung}</li>
               <li>Chống chỉ định : {state[num].chongChiDinh}</li>
               <li>Mã loại sản phẩm : {state[num].maLoaiSanPham}</li>
               <li>Số lượng sản phẩm : {state[num].soLuongSanPham}</li>
-              <Button type="primary" onClick={showModal}>
-                Chỉnh sửa
-              </Button>
-              <Modal
+              <Modal className="modal-background"
                 title="Chỉnh sửa thông tin sản phẩm"
                 visible={isOpen}
                 onOk={form.submit}
@@ -77,6 +74,9 @@ export default function SanPhamChoNhanVien() {
                 </Form>
               </Modal>
             </ul>
+            <Button className="product-edit" type="primary" onClick={showModal}>
+                Chỉnh sửa
+            </Button>
           </div>
         </div>
       </div>
@@ -85,8 +85,11 @@ export default function SanPhamChoNhanVien() {
 
   return (
     <WrapperStyled>
-      <h1>Các loại sản phẩm</h1>
-      <div className="body">{Card}</div>
+      <div className="product-contant">
+        <h1 className="product-tittle">Các loại sản phẩm</h1>
+        <div className="body">{Card}</div>
+
+      </div>
     </WrapperStyled>
   );
 }
