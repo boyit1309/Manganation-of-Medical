@@ -6,6 +6,15 @@ import Thuoc from "../../../asset/pic/thuoc.jpg";
 import { Modal, Button, Form, Input } from "antd";
 
 export default function SanPhamChoNhanVien() {
+  // const [state, _setState] = useState({
+  //   phieuDangKy: [],
+  //   khachHang: [],
+  //   sanPham: [],
+  // });
+  // const setState = (obj = {}) => {
+  //   _setState((prevState) => ({ ...prevState, ...obj }));
+  // };
+
   const [state, _setState] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [form] = Form.useForm();
