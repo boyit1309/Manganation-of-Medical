@@ -86,7 +86,10 @@ export default function SanPhamChoKhachHang() {
       img: '/image/sp7.jpg',
     }
   ]
+  const Path = window.location.href;
+  const ArrayPath = Path.split("=");
   const goToRegistration = ()=>{
+    window.location.href = `http://localhost:3000/nav/customer/dang-ki-tiem-chung?id=${ArrayPath[1]}`;
     console.log("hello");
   }
   const Card = list.map((num) => {

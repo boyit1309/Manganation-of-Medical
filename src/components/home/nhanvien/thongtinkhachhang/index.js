@@ -5,9 +5,6 @@ import axios from "axios";
 
 export default function ThongTinKhachHangChoNhanVien() {
   const [nguoiDung, setNguoiDung] = useState([]);
-//   const Path = window.location.href;
-//   const ArrayPath = Path.split("=");
-//   var userID = 1000000;
 
   useEffect(() => {
     axios
@@ -129,8 +126,13 @@ export default function ThongTinKhachHangChoNhanVien() {
     return (
     <div className="list__profileK">
       <span className="profile__img">
+<<<<<<< HEAD
+        <img src="" alt="" />
+        <span className="user-name"></span>
+=======
         <img src={list__user[num].img} alt="" />
         <span className="user-name">{nguoiDung?.[num]?.hoTen}</span>
+>>>>>>> 2a9aa8861a265155d33ed4318881928ab8780221
       </span>
         <ul className="item__profile">
           <li>ID tài khoản : {nguoiDung?.[num]?.maTaiKhoan}</li>

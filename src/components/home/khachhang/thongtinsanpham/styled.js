@@ -45,6 +45,9 @@ export const WrapperStyled = styled.div`
         cursor: pointer;
         color : Black;
       }
+      .buy__product:hover{
+        opacity: 0.8;
+      }
     }
     .content-right {
       width: 50%;
