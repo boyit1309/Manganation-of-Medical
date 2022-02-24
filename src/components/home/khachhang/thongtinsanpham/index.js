@@ -42,6 +42,48 @@ export default function SanPhamChoKhachHang() {
     },
     {
       img: '/image/sp7.jpg',
+    },
+    {
+      img: '/image/sp1.jpg',
+    },
+    {
+      img: '/image/sp2.jpg',
+    },
+    {
+      img: '/image/sp3.jpg',
+    },
+    {
+      img: '/image/sp4.jpg',
+    },
+    {
+      img: '/image/sp5.jpg',
+    },
+    {
+      img: '/image/sp6.png',
+    },
+    {
+      img: '/image/sp7.jpg',
+    },
+    {
+      img: '/image/sp1.jpg',
+    },
+    {
+      img: '/image/sp2.jpg',
+    },
+    {
+      img: '/image/sp3.jpg',
+    },
+    {
+      img: '/image/sp4.jpg',
+    },
+    {
+      img: '/image/sp5.jpg',
+    },
+    {
+      img: '/image/sp6.png',
+    },
+    {
+      img: '/image/sp7.jpg',
     }
   ]
   const Path = window.location.href;
@@ -67,6 +109,7 @@ export default function SanPhamChoKhachHang() {
               <li>Chống chỉ định : {state[num].chongChiDinh}</li>
               <li>Mã loại sản phẩm : {state[num].maLoaiSanPham}</li>
               <li>Số lượng sản phẩm : {state[num].soLuongSanPham}</li>
+              <li>Giá tiền : {state[num].giaTien} VNĐ</li>
             </ul>
           </div>
         </div>

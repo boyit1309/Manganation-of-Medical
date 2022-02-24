@@ -22,6 +22,7 @@ import ThongTinNhanVienChoNhanVien from "./nhanvien/thongtinnhanvien";
 import HomepageChoNhanVien from "./nhanvien/homepage";
 import HomepageChoKhachHang from "./khachhang/homepage";
 import ThongKe from "./nhanvien/thongke";
+import DuLieuTiemChung from "./nhanvien/dulieutiemchung";
 
 export default function Home() {
   return (
@@ -49,6 +50,7 @@ export default function Home() {
         <Route path="/nav/staff/data-customer" component={ThongTinKhachHangChoNhanVien} />
         <Route path="/nav/staff/data-staff" component={ThongTinNhanVienChoNhanVien} />
         <Route path="/nav/staff/statisics" component={ThongKe} />
+        <Route path="/nav/staff/data-vaccination" component={DuLieuTiemChung} />
 
         {/* cho khách hàng */}
         <Route path="/nav/customer" component={NavForCustomer} />

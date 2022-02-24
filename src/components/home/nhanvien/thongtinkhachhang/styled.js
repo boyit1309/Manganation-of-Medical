@@ -17,12 +17,12 @@ export const WrapperStyled = styled.div`
 }
  .list__profileK{
     display: flex;
-    flex: 1 1 33.3333%;
     flex-direction: column;
-    margin: 20px auto;
     box-sizing: content-box;
     min-height: calc(100vh - 59px);
     list-style: none;
+    width: 30%;
+    margin: 1.66667%;
  }
 .profile__img{
     display: flex;
