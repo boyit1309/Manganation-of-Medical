@@ -99,7 +99,7 @@ export default function DuLieuTiemChung() {
       >
         <div>Tên khách hàng : {modalData.hoTen}</div>
         <div>Tên sản phẩm : {modalData.tenSanPham}</div>
-        <div>Tên sản phẩm : {modalData.giaTien}</div>
+        <div>Giá tiền : {modalData.giaTien} VNĐ</div>
       </Modal>
     </WrapperStyled>
   );

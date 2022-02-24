@@ -5,9 +5,6 @@ import axios from "axios";
 import Footer from "../../homepage/footer/footer";
 export default function ThongTinKhachHangChoNhanVien() {
   const [nguoiDung, setNguoiDung] = useState([]);
-//   const Path = window.location.href;
-//   const ArrayPath = Path.split("=");
-//   var userID = 1000000;
 
   useEffect(() => {
     axios

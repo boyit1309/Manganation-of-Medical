@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { WrapperStyled } from "./styled";
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import axios from "axios";
 import {
   Form,
@@ -111,14 +112,19 @@ export default function ThongTinKhachHang() {
     setIsOpen(false);
   };
 
+  const editImg = ()=>{
+    console.log("hi");
+  }
   return (
     <WrapperStyled>
     <div className="container">
-      
      <div className="list__profileK">
       <span className="profile__img">
         <img src="/image/user-1.jpg" alt="" />
         <span className="user-name">Trường Nguyễn</span>
+        <span onClick ={editImg} className="edit__img">
+        <i class="fa-solid fa-camera"></i>
+        </span>
       </span>
       <ul className="item__profile">
         <li>ID tài khoản : {nguoiDung?.[userID]?.maTaiKhoan}</li>

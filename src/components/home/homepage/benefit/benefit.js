@@ -4,7 +4,7 @@ const benefit = () => {
   return (
     <div>
        <div id="benefit" class="benefit">
-        <h2 class="benefit-heading" data-wow-delay="0.1s" data-wow-duration="1500ms">Lợi ích của Phần mềm tiêm chủng SMED</h2>
+        <h2 class="benefit-heading" data-wow-delay="0.1s" data-wow-duration="1500ms">Lợi ích khi đăng kí tiêm chủng tại BK-Vacine</h2>
     
         <p class="benefit-para " data-wow-delay="0.3s" data-wow-duration="1500ms" >Hãy để chúng tôi đồng hành cùng thành công của bạn</p>
     
