@@ -12,7 +12,7 @@ export default function NavForStaff() {
     window.location.href = `http://localhost:3000/nav/staff/data-customer?id=${ArrayPath[1]}`;
   };
   const onClick3 = () => {
-    window.location.href = `http://localhost:3000/nav/customer/dang-ki-tiem-chung?id=${ArrayPath[1]}`;
+    window.location.href = `http://localhost:3000/nav/staff/data-vaccination?id=${ArrayPath[1]}`;
   };
   const onClick4 = () => {
     window.location.href = `http://localhost:3000/nav/staff/statisics?id=${ArrayPath[1]}`;

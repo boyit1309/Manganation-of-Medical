@@ -31,25 +31,8 @@ export default function ThongTinKhachHangChoNhanVien() {
   console.log("hello", list);
 
   const Card = list.map((num) => {
-    // console.log("hello123", nguoiDung[num].tenSanPham);
+
     return (
-    //   <div className="card">
-    //     <div className="content">
-    //       <div className="content-left">
-    //         <img src={Thuoc} alt="" />
-    //       </div>
-    //       <div className="content-right">
-    //         <div className="title">{state[num].tenSanPham}</div>
-    //         <ul>
-    //           <li>Nguồn gốc : {state[num].nguonGoc}</li>
-    //           <li>Tác dụng : {state[num].tacDung}</li>
-    //           <li>Chống chỉ định : {state[num].chongChiDinh}</li>
-    //           <li>Mã loại sản phẩm : {state[num].maLoaiSanPham}</li>
-    //           <li>Số lượng sản phẩm : {state[num].soLuongSanPham}</li>
-    //         </ul>
-    //       </div>
-    //     </div>
-    //   </div>
     <ul>
         <li>ID tài khoản : {nguoiDung?.[num]?.maTaiKhoan}</li>
         <li>Họ và tên : {nguoiDung?.[num]?.hoTen}</li>

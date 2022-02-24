@@ -58,6 +58,11 @@ export default function ThongTinKhachHang() {
     },
   };
 
+  const closePopup = useCallback(() => {
+    form.resetFields();
+    setIsOpen(false);
+  }, [form]);
+
   const showModal = () => {
     setIsOpen(true);
   };
@@ -106,11 +111,6 @@ export default function ThongTinKhachHang() {
     setIsOpen(false);
   };
 
-  const closePopup = useCallback(() => {
-    form.resetFields();
-    setIsOpen(false);
-  }, [form]);
-
   return (
     <WrapperStyled>
       <h1>Thông tin khách hàng</h1>
@@ -156,7 +156,7 @@ export default function ThongTinKhachHang() {
               },
             ]}
           >
-            <Input/>
+            <Input />
           </Form.Item>
 
           <Form.Item
@@ -179,10 +179,7 @@ export default function ThongTinKhachHang() {
           </Form.Item>
 
           <Form.Item label="Tuổi" name="tuoi" rules={[{ required: true }]}>
-            <InputNumber
-              min={1}
-              max={120}
-            />
+            <InputNumber min={1} max={120} />
           </Form.Item>
 
           <Form.Item label="Địa chỉ" name="diaChi" rules={[{ required: true }]}>

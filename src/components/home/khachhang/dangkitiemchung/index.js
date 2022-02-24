@@ -15,8 +15,9 @@ export default function DangKiTiemChung() {
   const Path = window.location.href;
   const ArrayPath = Path.split("=");
   const [visible, setVisible] = useState(false);
+  const [nguoiDung, setNguoiDung] = useState([]);
+  const [phieuDangKy, setPhieuDangKy] = useState([]);
   const [sanPham, setSanPham] = useState([]);
-  const [dangKi, setDangKi] = useState([]);
 
   useEffect(() => {
     axios
@@ -27,25 +28,38 @@ export default function DangKiTiemChung() {
       .catch((error) => console.log(error));
 
     axios
-      .get(`https://60ffb549bca46600171cf462.mockapi.io/api/dangKy`)
+      .get(`https://61fe8846a58a4e00173c98aa.mockapi.io/khachHang`)
       .then((res) => {
-        setDangKi(res.data);
+        setNguoiDung(res.data);
+      })
+      .catch((error) => console.log(error));
+
+    axios
+      .get(`https://61fe8846a58a4e00173c98aa.mockapi.io/phieuDangKyTiem`)
+      .then((res) => {
+        setPhieuDangKy(res.data);
       })
       .catch((error) => console.log(error));
   }, []);
+
+  const newData = nguoiDung?.length
+    ? nguoiDung.find((item) => item.maTaiKhoan == ArrayPath[1])
+    : {};
+  console.log("hello123",newData);  
 
   const list = [];
   for (let i = 0; i < Object.keys(sanPham).length; i++) {
     list[i] = i;
   }
-  console.log("hello", sanPham);
+  // console.log("hello", sanPham);
 
   const onFinish = (values) => {
     setVisible(true);
     axios
-      .post(`https://60ffb549bca46600171cf462.mockapi.io/api/dangKy`, {
-        maSanPham: values.product,
-        maPhieuDangKy: Object.keys(dangKi).length + 1
+      .post(`https://61fe8846a58a4e00173c98aa.mockapi.io/phieuDangKyTiem`, {
+        maKhachHang: newData.maKhachHang,
+        maLoaiSanPham: values.maLoaiSanPham,
+        maPhieuDangKy: Object.keys(phieuDangKy).length + 1,
       })
       .then(function (response) {
         console.log(response);
@@ -82,7 +96,7 @@ export default function DangKiTiemChung() {
       >
         <Form.Item
           label="Chọn loại sản phẩm"
-          name="product"
+          name="maLoaiSanPham"
           rules={[{ required: true }]}
         >
           <Select style={{ width: "100%" }}>
@@ -116,7 +130,7 @@ export default function DangKiTiemChung() {
         footer={[
           <Button
             key="ok"
-            href="http://localhost:3000/"
+            href={`http://localhost:3000/nav/customer/home?id=${ArrayPath[1]}`}
             type="primary"
             onClick={() => setVisible(false)}
           >
